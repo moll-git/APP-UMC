@@ -5,25 +5,25 @@
         <span class="text-[#555555]">
             <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><line x1="18" x2="6" y1="6" y2="18"/><line x1="6" x2="18" y1="6" y2="18"/></svg>
         </span>
-        <span class="text-[#666666]">UMC App</span>
+        <span class="text-[#666666]">{{ __('app.breadcrumb_app') }}</span>
         <span class="text-[#444444]">/</span>
         <span class="text-white font-medium">
             @if(request()->routeIs('home'))
-                Inicio
+                {{ __('app.nav_home') }}
             @elseif(request()->routeIs('calendar'))
-                Calendario
+                {{ __('app.nav_calendar') }}
             @elseif(request()->routeIs('album'))
-                Álbum
+                {{ __('app.nav_album') }}
             @elseif(request()->routeIs('forum'))
-                Foro
+                {{ __('app.nav_forum') }}
             @elseif(request()->routeIs('concerts'))
-                Shows
+                {{ __('app.nav_shows') }}
             @elseif(request()->routeIs('admin'))
-                Administración
+                {{ __('app.nav_admin') }}
             @elseif(request()->routeIs('configuracion'))
-                Configuración
+                {{ __('app.nav_settings') }}
             @elseif(request()->routeIs('profile'))
-                Perfil
+                {{ __('app.profile_title') }}
             @else
                 Panel
             @endif

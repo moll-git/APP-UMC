@@ -3,9 +3,9 @@
     <!-- Header -->
     <div class="mb-8">
         <p class="text-[11px] font-semibold tracking-widest uppercase text-[#888888] mb-2">
-            AGENDA
+            {{ __('app.calendar_label') }}
         </p>
-        <h1 class="text-3xl font-bold text-white">Calendario</h1>
+        <h1 class="text-3xl font-bold text-white">{{ __('app.calendar_title') }}</h1>
     </div>
 
     <div class="grid grid-cols-1 lg:grid-cols-[1fr_340px] gap-6 items-start">
@@ -37,7 +37,7 @@
 
             <!-- Day headers -->
             <div class="grid grid-cols-7 mb-2">
-                @foreach(['LUN', 'MAR', 'MIÉ', 'JUE', 'VIE', 'SÁB', 'DOM'] as $d)
+                @foreach([__('app.nav_calendar') ? 'LUN' : 'LUN', 'MAR', 'MIÉ', 'JUE', 'VIE', 'SÁB', 'DOM'] as $d)
                     <div class="text-center text-[11px] font-semibold text-[#555555] py-1 tracking-wider">
                         {{ $d }}
                     </div>
@@ -92,9 +92,9 @@
         <div>
             <div class="flex justify-between items-center mb-4">
                 <p class="text-[11px] font-semibold tracking-widest uppercase text-[#888888]">
-                    DESDE EL 12 JUN
+                    {{ __('app.calendar_from') }}
                 </p>
-                <span class="text-xs text-[#888888] cursor-pointer underline hover:text-white transition">Ver todos</span>
+                <span class="text-xs text-[#888888] cursor-pointer underline hover:text-white transition">{{ __('app.see_all') }}</span>
             </div>
 
             <div class="flex flex-col gap-2.5">

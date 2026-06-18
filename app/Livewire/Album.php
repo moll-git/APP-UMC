@@ -7,7 +7,7 @@ use Livewire\Component;
 class Album extends Component
 {
     public $activeCategoryId = 'conciertos';
-    public $filter = 'Todo';
+    public $filter = 'all';
 
     public $categories = [
         ['id' => 'conciertos', 'emoji' => '🎸', 'name' => 'Conciertos', 'count' => 14],
@@ -57,10 +57,10 @@ class Album extends Component
                 if ($item['categoryId'] !== $this->activeCategoryId) {
                     return false;
                 }
-                if ($this->filter === 'Fotos') {
+                if ($this->filter === 'photos') {
                     return $item['type'] === 'photo';
                 }
-                if ($this->filter === 'Vídeos') {
+                if ($this->filter === 'videos') {
                     return $item['type'] === 'video';
                 }
                 return true;
