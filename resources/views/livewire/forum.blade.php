@@ -1,53 +1,109 @@
-<div class="space-y-6">
-    <div class="flex items-center justify-between">
-        <h2 class="text-2xl font-bold text-white">Foro</h2>
-        <button class="bg-green-600 hover:bg-green-500 text-white p-2 rounded-full shadow-lg transition">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path></svg>
+<div class="p-6 md:p-8 max-w-[900px] w-full mx-auto">
+
+    <!-- Header -->
+    <div class="flex flex-col sm:flex-row justify-between items-start gap-4 mb-6">
+        <div>
+            <p class="text-[11px] font-semibold tracking-widest uppercase text-[#888888] mb-1.5">
+                COMUNIDAD
+            </p>
+            <h1 class="text-3xl font-bold text-white leading-tight">Foro</h1>
+        </div>
+        <button class="flex items-center gap-2 bg-white text-black px-5 py-2.5 rounded-lg font-semibold text-sm hover:opacity-90 transition shrink-0 cursor-pointer">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><line x1="12" x2="12" y1="5" y2="19"/><line x1="5" x2="19" y1="12" y2="12"/></svg>
+            Nuevo hilo
         </button>
     </div>
 
-    <!-- Buscador -->
-    <div class="relative">
-        <input type="text" placeholder="Buscar en el foro..." class="w-full bg-[#242424] border border-[#333] rounded-xl pl-10 pr-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-green-500 focus:ring-1 focus:ring-green-500 transition">
-        <svg class="w-5 h-5 text-gray-500 absolute left-3 top-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+    <!-- Search -->
+    <div class="relative mb-4">
+        <span class="absolute left-3.5 top-1/2 -translate-y-1/2 text-[#555555]">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" x2="16.65" y1="21" y2="16.65"/></svg>
+        </span>
+        <input
+            wire:model.live="search"
+            type="text"
+            placeholder="Buscar en el foro..."
+            class="w-full bg-[#1a1a1a] border border-[#333333] hover:border-[#555555] focus:border-[#555555] rounded-lg py-2.5 pl-10 pr-4 text-white text-sm outline-none transition duration-150"
+        />
     </div>
 
-    <!-- Lista de Hilos -->
-    <div class="space-y-3">
-        <!-- Hilo 1 -->
-        <div class="bg-[#242424] border border-[#333] rounded-xl p-4 hover:bg-[#2a2a2a] transition cursor-pointer relative group">
-            <div class="flex items-start gap-3">
-                <div class="w-10 h-10 rounded-full bg-blue-500 flex items-center justify-center shrink-0 font-bold text-white">M</div>
-                <div class="flex-1 min-w-0">
-                    <h3 class="text-white font-semibold truncate">¿Qué canciones tocaremos en el próximo show?</h3>
-                    <p class="text-gray-400 text-sm truncate mt-0.5">Tengo un par de ideas para incluir en el setlist...</p>
-                    <div class="flex items-center gap-4 mt-2 text-xs text-gray-500">
-                        <span class="flex items-center gap-1"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg> 12</span>
-                        <span class="flex items-center gap-1"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5"></path></svg> 5</span>
-                        <span>Hace 2h</span>
-                    </div>
-                </div>
-                <!-- Menú de opciones (Reportar) -->
-                <button class="text-gray-500 hover:text-white p-1 rounded-md opacity-0 group-hover:opacity-100 transition absolute top-3 right-3">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"></path></svg>
-                </button>
-            </div>
-        </div>
-
-        <!-- Hilo 2 -->
-        <div class="bg-[#242424] border border-[#333] rounded-xl p-4 hover:bg-[#2a2a2a] transition cursor-pointer relative group">
-            <div class="flex items-start gap-3">
-                <div class="w-10 h-10 rounded-full bg-pink-500 flex items-center justify-center shrink-0 font-bold text-white">L</div>
-                <div class="flex-1 min-w-0">
-                    <h3 class="text-white font-semibold truncate">Vestuario para la gala</h3>
-                    <p class="text-gray-400 text-sm truncate mt-0.5">Recordad que todos tenemos que ir de negro absoluto...</p>
-                    <div class="flex items-center gap-4 mt-2 text-xs text-gray-500">
-                        <span class="flex items-center gap-1"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg> 24</span>
-                        <span class="flex items-center gap-1"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5"></path></svg> 18</span>
-                        <span>Ayer</span>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <!-- Category filters -->
+    <div class="flex flex-wrap gap-2 mb-5">
+        @foreach($categories as $cat)
+            @php
+                $isActive = ($activeCategory === $cat);
+            @endphp
+            <button
+                wire:click="selectCategory('{{ $cat }}')"
+                class="px-4 py-1.5 rounded-full border text-xs font-medium cursor-pointer transition select-none
+                {{ $isActive ? 'border-white bg-white text-black font-semibold' : 'border-[#333333] bg-transparent text-[#888888] hover:text-white' }}"
+            >
+                {{ $cat }}
+            </button>
+        @endforeach
     </div>
+
+    <!-- Count -->
+    <p class="text-xs text-[#666666] mb-4">
+        {{ count($filteredThreads) }} hilo{{ count($filteredThreads) !== 1 ? 's' : '' }} encontrado{{ count($filteredThreads) !== 1 ? 's' : '' }}
+    </p>
+
+    <!-- Thread list -->
+    <div class="flex flex-col gap-2">
+        @php
+            $catColors = [
+                'Ensayos' => '#4488ff',
+                'Repertorio' => '#aa44ff',
+                'Equipamiento' => '#ff6633',
+                'Álbum' => '#00cc88',
+                'General' => '#888888',
+            ];
+        @endphp
+        @foreach($filteredThreads as $thread)
+            @php
+                $catColor = $catColors[$thread['category']] ?? '#888888';
+            @endphp
+            <div
+                class="bg-[#1a1a1a] border border-[#2a2a2a] rounded-xl p-4.5 cursor-pointer hover:border-[#444444] hover:bg-[#222222] transition duration-150 flex items-start gap-3.5 group"
+            >
+                <!-- Avatar -->
+                <div class="w-8 h-8 rounded-full bg-[#333333] flex items-center justify-center text-[11px] font-bold text-white shrink-0 select-none">
+                    {{ $thread['authorInitials'] }}
+                </div>
+
+                <!-- Content -->
+                <div class="flex-grow min-w-0">
+                    <div class="flex flex-wrap items-center gap-2 mb-1.5 text-xs text-[#555555]">
+                        <span class="font-bold text-white">{{ $thread['author'] }}</span>
+                        <span>{{ $thread['time'] }}</span>
+                        <span class="inline-flex px-2 py-0.5 rounded-full text-[10px] font-medium border" 
+                              style="background-color: {{ $catColor }}20; color: {{ $catColor }}; border-color: {{ $catColor }}40;">
+                            {{ $thread['category'] }}
+                        </span>
+                    </div>
+                    <h3 class="text-[15px] font-bold text-white mb-1.5 leading-snug">
+                        {{ $thread['title'] }}
+                    </h3>
+                    <p class="text-xs text-[#777777] leading-relaxed mb-3">
+                        {{ $thread['preview'] }}
+                    </p>
+                    <div class="flex gap-4 text-xs text-[#555555]">
+                        <span class="flex items-center gap-1">
+                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                            {{ $thread['replies'] }}
+                        </span>
+                        <span class="flex items-center gap-1">
+                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+                            {{ $thread['likes'] }}
+                        </span>
+                    </div>
+                </div>
+
+                <div class="text-[#444444] group-hover:text-white transition shrink-0 mt-0.5">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+                </div>
+            </div>
+        @endforeach
+    </div>
+
 </div>

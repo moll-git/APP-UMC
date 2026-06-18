@@ -1,49 +1,98 @@
-<div x-data="{ tab: 'gallery' }" class="space-y-6">
-    <div class="flex items-center justify-between mb-2">
-        <h2 class="text-2xl font-bold text-white">Álbum</h2>
-        <!-- Custom Tabs -->
-        <div class="bg-[#242424] p-1 rounded-xl flex space-x-1 border border-[#333]">
-            <button @click="tab = 'gallery'" :class="tab === 'gallery' ? 'bg-[#333] text-white shadow' : 'text-gray-400 hover:text-gray-200'" class="px-4 py-1.5 text-sm font-medium rounded-lg transition">Galería</button>
-            <button @click="tab = 'upload'" :class="tab === 'upload' ? 'bg-[#333] text-white shadow' : 'text-gray-400 hover:text-gray-200'" class="px-4 py-1.5 text-sm font-medium rounded-lg transition">Subir</button>
-        </div>
-    </div>
+<div class="flex flex-col md:flex-row h-full min-h-[calc(100vh-48px)]">
 
-    <!-- Tab: Galería -->
-    <div x-show="tab === 'gallery'" x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0 translate-y-2" x-transition:enter-end="opacity-100 translate-y-0" style="display: none;">
-        <div class="grid grid-cols-3 gap-2">
-            <!-- Mock Photos -->
-            @for ($i = 1; $i <= 12; $i++)
-                <div class="aspect-square bg-[#242424] rounded-lg overflow-hidden border border-[#333] relative group">
-                    <!-- Placeholder de imagen -->
-                    <div class="w-full h-full bg-gradient-to-br from-purple-500/20 to-pink-500/20 flex items-center justify-center">
-                        <svg class="w-8 h-8 text-white/20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+    <!-- === LEFT SIDEBAR === -->
+    <div class="w-full md:w-[220px] md:min-w-[220px] bg-[#111111] border-b md:border-b-0 md:border-r border-[#222222] flex flex-col p-6">
+        <div class="mb-4">
+            <p class="text-[11px] font-semibold tracking-widest uppercase text-[#888888] mb-1">
+                ÁLBUM
+            </p>
+            <h2 class="text-lg font-bold text-white leading-tight">Galería del grupo</h2>
+        </div>
+
+        <div class="flex-1 overflow-y-auto space-y-0.5 max-h-[200px] md:max-h-none py-2 md:py-0">
+            @foreach($categories as $cat)
+                @php
+                    $isActive = ($activeCategoryId === $cat['id']);
+                @endphp
+                <div
+                    wire:click="selectCategory('{{ $cat['id'] }}')"
+                    class="flex items-center justify-between px-3 py-2.5 rounded-lg cursor-pointer transition select-none border
+                    {{ $isActive ? 'bg-[#2a2a2a] border-[#444444]' : 'border-transparent hover:bg-[#1a1a1a]' }}"
+                >
+                    <div class="flex items-center gap-2.5">
+                        <span class="text-base">{{ $cat['emoji'] }}</span>
+                        <span class="text-[13px] {{ $isActive ? 'text-white font-medium' : 'text-[#888888]' }}">
+                            {{ $cat['name'] }}
+                        </span>
                     </div>
+                    <span class="text-[11px] text-[#555555] bg-[#222222] px-2 py-0.5 rounded-full">
+                        {{ $cat['count'] }}
+                    </span>
                 </div>
-            @endfor
+            @endforeach
         </div>
-    </div>
 
-    <!-- Tab: Subir -->
-    <div x-show="tab === 'upload'" x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0 translate-y-2" x-transition:enter-end="opacity-100 translate-y-0" style="display: none;" class="space-y-4">
-        
-        <div class="bg-[#242424] border-2 border-dashed border-[#444] rounded-2xl p-8 text-center hover:bg-[#2a2a2a] hover:border-pink-500/50 transition cursor-pointer flex flex-col items-center justify-center min-h-[250px]">
-            <div class="bg-pink-500/20 p-4 rounded-full mb-4 text-pink-400">
-                <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path></svg>
-            </div>
-            <p class="text-white font-medium mb-1">Arrastra tus fotos o vídeos aquí</p>
-            <p class="text-gray-400 text-sm mb-4">o haz clic para explorar tus archivos</p>
-            <button class="bg-[#333] hover:bg-[#444] text-white px-6 py-2 rounded-lg text-sm font-medium transition border border-[#555]">
-                Seleccionar archivos
+        <!-- Upload button -->
+        <div class="pt-4 md:pt-6">
+            <button class="w-full flex items-center justify-center gap-2 py-2.5 border border-[#333333] hover:border-[#555555] rounded-lg text-[#888888] hover:text-white text-[13px] font-medium transition cursor-pointer">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" x2="12" y1="3" y2="15"/></svg>
+                Subir archivo
             </button>
         </div>
+    </div>
 
-        <div class="bg-blue-500/10 border border-blue-500/20 rounded-xl p-4 flex gap-3 items-start">
-            <svg class="w-5 h-5 text-blue-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+    <!-- === RIGHT GALLERY === -->
+    <div class="flex-grow p-6 md:p-8 overflow-y-auto">
+
+        <!-- Header -->
+        <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-6">
             <div>
-                <h4 class="text-blue-400 font-medium text-sm">Proceso de Aprobación</h4>
-                <p class="text-gray-400 text-xs mt-1">Todos los archivos subidos serán revisados por un administrador antes de ser visibles en la galería pública.</p>
+                <h2 class="text-lg font-bold text-white flex items-center gap-2">
+                    {{ $activeCategory['emoji'] }} {{ $activeCategory['name'] }}
+                </h2>
+                <p class="text-xs text-[#666666] mt-0.5">{{ $activeCategory['count'] }} archivos</p>
+            </div>
+
+            <!-- Filters -->
+            <div class="flex gap-1 bg-[#1a1a1a] border border-[#333333] rounded-lg p-0.5">
+                @foreach(['Todo', 'Fotos', 'Vídeos'] as $f)
+                    <button
+                        wire:click="selectFilter('{{ $f }}')"
+                        class="px-3.5 py-1.5 rounded-md text-xs font-medium cursor-pointer transition duration-150 select-none
+                        {{ $filter === $f ? 'bg-[#333333] text-white' : 'text-[#666666] hover:text-white' }}"
+                    >
+                        {{ $f }}
+                    </button>
+                @endforeach
             </div>
         </div>
-        
+
+        <!-- Grid -->
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2">
+            @foreach($filteredItems as $item)
+                <div
+                    class="aspect-square bg-[#1a1a1a] border border-[#2a2a2a] rounded-lg flex items-center justify-center relative cursor-pointer overflow-hidden transition hover:border-[#555555]"
+                >
+                    @if($item['type'] === 'photo')
+                        <svg class="w-6 h-6 text-[#333333]" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>
+                    @elseif($item['type'] === 'video')
+                        <!-- VID badge -->
+                        <span class="absolute top-1.5 right-1.5 text-[9px] font-bold text-white bg-[#333333] px-1.5 py-0.5 rounded tracking-wide">
+                            VID
+                        </span>
+                        <div class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center border border-white/15">
+                            <svg class="w-3.5 h-3.5 text-white fill-white ml-0.5" viewBox="0 0 24 24"><path d="M5 3l14 9-14 9V3z"/></svg>
+                        </div>
+                    @elseif($item['type'] === 'upload')
+                        <div class="flex flex-col items-center gap-1.5">
+                            <svg class="w-5 h-5 text-[#444444]" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" x2="12" y1="3" y2="15"/></svg>
+                            <span class="text-[10px] text-[#444444]">Subir</span>
+                        </div>
+                        <div class="absolute inset-0 border-2 border-dashed border-[#2a2a2a] rounded-lg pointer-events-none"></div>
+                    @endif
+                </div>
+            @endforeach
+        </div>
     </div>
+
 </div>
