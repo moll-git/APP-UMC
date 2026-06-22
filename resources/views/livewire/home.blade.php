@@ -11,7 +11,6 @@
                     {{ __('app.home_welcome') }}, {{ explode(' ', auth()->user()->name)[0] }}
                 </h1>
                 <p class="text-sm text-[#999999]">
-                    {{ __('app.home_subtitle') }}
                 </p>
             </div>
             <div class="flex items-center gap-1.5 text-sm text-[#00ff88] pt-2">
