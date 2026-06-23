@@ -1,0 +1,221 @@
+﻿<?php
+
+return [
+
+    // GENERAL
+    'app_name'      => 'UMC App',
+    'band_name'     => 'Banda Musical',
+    'open'          => 'Obrir →',
+    'save_changes'  => 'Guardar canvis',
+    'saved'         => '✓ Guardat',
+    'cancel'        => 'Cancel·lar',
+    'send'          => 'Enviar comentari',
+    'publish'       => 'Publicar',
+    'add'           => '+ Afegir',
+    'upload_file'   => 'Puge arxiu',
+    'new_thread'    => 'Nou fil',
+    'search'        => 'Buscar',
+    'see_all'       => 'Veure tots',
+    'coming_soon'   => 'pròximament',
+    'edit_profile'  => 'Editar Perfil',
+    'logout'        => 'Tancar sessió',
+    'change_password' => 'Canviar contrasenya',
+
+    // NAVIGATION
+    'nav_home'      => 'Inici',
+    'nav_calendar'  => 'Calendari',
+    'nav_album'     => 'Àlbum',
+    'nav_forum'     => 'Fòrum',
+    'nav_shows'     => 'Actuacions',
+    'nav_admin'     => 'Administració',
+    'nav_settings'  => 'Configuració',
+
+    // HEADER BREADCRUMB
+    'breadcrumb_app' => 'UMC App',
+
+    // HOME PAGE
+    'home_label'          => 'PANELL PRINCIPAL',
+    'home_welcome'        => 'Benvingut',
+    'home_subtitle'       => 'Ací tens un resum de l\'activitat de l\'UMC.',
+    'home_active_members' => ':count membres actius',
+    'home_sections_label' => 'SECCIONS',
+
+    'section_calendar_title' => 'Calendari',
+    'section_calendar_desc'  => 'Eventos, assaigs i dates clau',
+    'section_album_title'    => 'Àlbum',
+    'section_album_desc'     => 'Fotos i vídeos del grup',
+    'section_forum_title'    => 'Fòrum',
+    'section_forum_desc'     => 'Preguntes, debats i propostes',
+    'section_concerts_title' => 'Actuacions',
+    'section_concerts_desc'  => 'Actuacions i repertori',
+
+    'home_admin_title'    => 'Administració',
+    'home_admin_subtitle' => 'Gestió de membres, anuncis, moderació i més',
+
+    'home_upcoming_label' => 'PRÒXIMAMENT',
+    'home_next_concert'   => 'PRÒXIMA ACTUACIÓ',
+    'home_next_rehearsal' => 'PRÒXIM ASSAIG',
+    'home_activity_label' => 'ACTIVITAT RECENT',
+
+    // CALENDAR PAGE
+    'calendar_label' => 'AGENDA',
+    'calendar_title' => 'Calendari',
+    'calendar_from'  => 'DESDE EL 12 JUN',
+
+    'event_type_rehearsal' => 'Assaig',
+    'event_type_concert'   => 'Actuació',
+    'event_type_studio'    => 'Estudi',
+    'event_type_meeting'   => 'Reunió',
+
+    // ALBUM PAGE
+    'album_label'        => 'ÀLBUM',
+    'album_title'        => 'Galeria del grup',
+    'album_files'        => ':count arxius',
+    'album_filter_all'   => 'Tot',
+    'album_filter_photos' => 'Fotos',
+    'album_filter_videos' => 'Vídeos',
+    'album_upload_label' => 'Puge',
+
+    // FORUM PAGE
+    'forum_label'              => 'COMUNITAT',
+    'forum_title'              => 'Fòrum',
+    'forum_search_placeholder' => 'Buscar en el fòrum...',
+    'forum_threads_found'      => ':count fil trobat|:count fils trobats',
+
+    // CONCERTS PAGE
+    'concerts_label'     => 'AGENDA MUSICAL',
+    'concerts_title'     => 'Actuacions',
+    'concerts_works'     => ':count obres',
+    'concerts_repertoire_label' => 'REPERTORI',
+    'concerts_youtube'   => 'Veure a YouTube',
+
+    'status_preparing'       => 'En preparació',
+    'status_upcoming'        => 'Pròxim',
+    'status_past'            => 'Passat',
+    'status_label_preparing' => 'EN PREPARACIÓ',
+    'status_label_upcoming'  => 'PRÒXIMS',
+    'status_label_past'      => 'PASSATS',
+
+    // SETTINGS PAGE
+    'settings_label' => 'PERSONALITZACIÓ',
+    'settings_title' => 'Configuració',
+
+    'settings_section_account'       => 'Compte',
+    'settings_section_account_desc'  => 'Foto, nom i contrasenya',
+    'settings_section_theme'         => 'Tema de color',
+    'settings_section_theme_desc'    => 'Aparença de l\'aplicació',
+    'settings_section_language'      => 'Idioma',
+    'settings_section_language_desc' => 'Idioma de la interfície',
+    'settings_section_notif'         => 'Notificacions',
+    'settings_section_notif_desc'    => 'Gestionar alertes',
+    'settings_section_help'          => 'Ajuda',
+    'settings_section_help_desc'     => 'Preguntes freqüents',
+    'settings_section_feedback'      => 'Comentaris',
+    'settings_section_feedback_desc' => 'Reportar un problema',
+
+    'settings_account_title'    => 'Compte',
+    'settings_name_label'       => 'NOM',
+    'settings_instrument_label' => 'INSTRUMENT / ROL',
+    'settings_email_label'      => 'CORREU ELECTRÒNIC',
+    'settings_email_verified'   => 'Verificat',
+    'settings_avatar_hint'      => 'Pulsa l\'icona per canviar la foto',
+
+    'settings_theme_title'    => 'Tema de color',
+    'settings_theme_subtitle' => 'Selecciona l\'aparença de l\'aplicació. El canvi s\'aplica a l\'instant.',
+    'theme_dark'              => 'Fosc',
+    'theme_slate'             => 'Pissarra blava',
+    'theme_forest'            => 'Verd bosc',
+    'theme_wine'              => 'Vi tinto',
+    'theme_light'             => 'Clar',
+
+    'settings_language_title'    => 'Idioma',
+    'settings_language_subtitle' => 'Selecciona l\'idioma de la interfície.',
+
+    'settings_notif_title'    => 'Notificacions',
+    'settings_notif_subtitle' => 'Controla quins alertes desitges rebre.',
+
+    'settings_help_title'    => 'Ajuda',
+    'settings_help_subtitle' => 'Preguntes freqüents sobre l\'aplicació.',
+
+    'settings_feedback_title'       => 'Comentaris',
+    'settings_feedback_subtitle'    => 'Ajuda\'ns a millorar reportant problemes o suggerint millores.',
+    'settings_feedback_type_label'  => 'TIPUS',
+    'settings_feedback_desc_label'  => 'DESCRIPCIÓ',
+    'settings_feedback_bug'         => '🐛 Error',
+    'settings_feedback_improve'     => '✨ Millora',
+    'settings_feedback_other'       => '💬 Altre',
+    'settings_feedback_placeholder' => 'Descriu el problema o suggerència amb el major detall possible...',
+    'settings_feedback_success'     => '¡Gràcies pel teu comentari!',
+    'settings_feedback_success_sub' => 'Ho revisarem aviat.',
+    'settings_version'              => 'UMC App · v1.0.0',
+
+    // ADMIN PAGE
+    'admin_current_access'       => 'ACCÉS ACTUAL',
+    'admin_role_admin'           => 'Administrador',
+    'admin_role_member'          => 'Membre',
+    'admin_members_title'        => 'Membres',
+    'admin_announce_title'       => 'Publicar anunci',
+    'admin_announce_label'       => 'MISSATGE',
+    'admin_announce_placeholder' => 'Escriu l\'anunci per a tota la banda...',
+    'admin_announce_success'     => '¡Anunci publicat amb èxit!',
+    'admin_announce_success_sub' => 'Tots els membres de la banda rebran l\'alerta.',
+    'admin_badge_admin'          => 'Admin',
+    'admin_stat_members'         => 'MEMBRES',
+    'admin_stat_events'          => 'EVENTOS',
+    'admin_stat_threads'         => 'FILS',
+    'admin_action_members'       => 'Gestionar membres',
+    'admin_action_announce'      => 'Publicar anunci',
+    'admin_action_moderate'      => 'Moderar fòrum',
+    'admin_action_album'         => 'Gestionar àlbum',
+    'admin_action_notify'        => 'Enviar notificació',
+    'admin_action_reports'       => 'Veure informes',
+    'admin_badge_active'         => ':count actius',
+    'admin_badge_reports'        => ':count informes',
+    'admin_badge_pending'        => ':count pendent',
+    'admin_placeholder_detail'   => 'Selecciona una acció del panell esquerre',
+
+    // NOTIFICATIONS
+    'notif_forum_threads'        => 'Nous fils en el Fòrum',
+    'notif_forum_threads_desc'   => 'Quan algú crea un fil nou',
+    'notif_forum_replies'        => 'Respostes als teus fils',
+    'notif_forum_replies_desc'   => 'Quan algú respon als teus missatges',
+    'notif_events'               => 'Nous eventos',
+    'notif_events_desc'          => 'Assaigs, actuacions i reunions',
+    'notif_setlist'              => 'Canvis en el repertori',
+    'notif_setlist_desc'         => 'Quan es bufa el repertori',
+    'notif_announcements'        => 'Anuncis de la banda',
+    'notif_announcements_desc'   => 'Comunicats importants',
+    'notif_photos'               => 'Noves fotos pujades',
+    'notif_photos_desc'          => 'Quan es bufa contingut a l\'àlbum',
+
+    // FAQ
+    'faq_1_q' => '¿Com puc canviar el meu instrument o rol?',
+    'faq_1_a' => 'Vés a Configuració > Compte i edita el camp Instrument / Rol. Pulsa Guardar canvis per aplicar.',
+    'faq_2_q' => '¿Com puge fotos a l\'àlbum?',
+    'faq_2_a' => 'Entra en la secció Àlbum, selecciona la categoria i pulsa el botó Puge arxiu a la part inferior del panell esquerre.',
+    'faq_3_q' => '¿Com cree un nou evento en el calendari?',
+    'faq_3_a' => 'Només els administradors poden crear eventos. Contacta amb l\'admin de la banda per afegir nous eventos.',
+    'faq_4_q' => '¿Puc exportar el repertori d\'una actuació?',
+    'faq_4_a' => 'Actualment no està disponible l\'exportació, però està planificada per a pròximes versions.',
+    'faq_5_q' => '¿Com reporto un problema?',
+    'faq_5_a' => 'Vés a Configuració > Comentaris i descriu el problema. Tampoc puedes contactar directament amb l\'administrador.',
+
+    // FORUM CATEGORIES
+    'forum_cat_all'        => 'Tot',
+    'forum_cat_rehearsals' => 'Assaigs',
+    'forum_cat_repertoire' => 'Repertori',
+    'forum_cat_equipment'  => 'Equipament',
+    'forum_cat_album'      => 'Àlbum',
+    'forum_cat_general'    => 'General',
+
+    // ALBUM CATEGORIES
+    'album_cat_concerts'   => 'Actuacions',
+    'album_cat_rehearsals' => 'Assaigs',
+    'album_cat_events'     => 'Eventos especials',
+    'album_cat_fun'        => 'Risades',
+    'album_cat_studio'     => 'Estudi de gravació',
+    'album_cat_tours'      => 'Viatges i gires',
+
+    // PROFILE
+    'profile_title' => 'Perfil',
+];

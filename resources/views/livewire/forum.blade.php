@@ -4,13 +4,13 @@
     <div class="flex flex-col sm:flex-row justify-between items-start gap-4 mb-6">
         <div>
             <p class="text-[11px] font-semibold tracking-widest uppercase text-[#888888] mb-1.5">
-                COMUNIDAD
+                {{ __('app.forum_label') }}
             </p>
-            <h1 class="text-3xl font-bold text-white leading-tight">Foro</h1>
+            <h1 class="text-3xl font-bold text-white leading-tight">{{ __('app.forum_title') }}</h1>
         </div>
         <button class="flex items-center gap-2 bg-white text-black px-5 py-2.5 rounded-lg font-semibold text-sm hover:opacity-90 transition shrink-0 cursor-pointer">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><line x1="12" x2="12" y1="5" y2="19"/><line x1="5" x2="19" y1="12" y2="12"/></svg>
-            Nuevo hilo
+            {{ __('app.new_thread') }}
         </button>
     </div>
 
@@ -22,7 +22,7 @@
         <input
             wire:model.live="search"
             type="text"
-            placeholder="Buscar en el foro..."
+            placeholder="{{ __('app.forum_search_placeholder') }}"
             class="w-full bg-[#1a1a1a] border border-[#333333] hover:border-[#555555] focus:border-[#555555] rounded-lg py-2.5 pl-10 pr-4 text-white text-sm outline-none transition duration-150"
         />
     </div>
@@ -45,7 +45,7 @@
 
     <!-- Count -->
     <p class="text-xs text-[#666666] mb-4">
-        {{ count($filteredThreads) }} hilo{{ count($filteredThreads) !== 1 ? 's' : '' }} encontrado{{ count($filteredThreads) !== 1 ? 's' : '' }}
+        {{ count($filteredThreads) }} {{ count($filteredThreads) !== 1 ? __('app.forum_threads_plural') : __('app.forum_thread_singular') }}
     </p>
 
     <!-- Thread list -->

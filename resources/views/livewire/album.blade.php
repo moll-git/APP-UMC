@@ -4,9 +4,9 @@
     <div class="w-full md:w-[220px] md:min-w-[220px] bg-[#111111] border-b md:border-b-0 md:border-r border-[#222222] flex flex-col p-6">
         <div class="mb-4">
             <p class="text-[11px] font-semibold tracking-widest uppercase text-[#888888] mb-1">
-                ÁLBUM
+                {{ __('app.album_label') }}
             </p>
-            <h2 class="text-lg font-bold text-white leading-tight">Galería del grupo</h2>
+            <h2 class="text-lg font-bold text-white leading-tight">{{ __('app.album_title') }}</h2>
         </div>
 
         <div class="flex-1 overflow-y-auto space-y-0.5 max-h-[200px] md:max-h-none py-2 md:py-0">
@@ -50,18 +50,18 @@
                 <h2 class="text-lg font-bold text-white flex items-center gap-2">
                     {{ $activeCategory['emoji'] }} {{ $activeCategory['name'] }}
                 </h2>
-                <p class="text-xs text-[#666666] mt-0.5">{{ $activeCategory['count'] }} archivos</p>
+                <p class="text-xs text-[#666666] mt-0.5">{{ __('app.album_files', ['count' => $activeCategory['count']]) }}</p>
             </div>
 
             <!-- Filters -->
             <div class="flex gap-1 bg-[#1a1a1a] border border-[#333333] rounded-lg p-0.5">
-                @foreach(['Todo', 'Fotos', 'Vídeos'] as $f)
+                @foreach([['all', __('app.album_filter_all')], ['photos', __('app.album_filter_photos')], ['videos', __('app.album_filter_videos')]] as [$fKey, $fLabel])
                     <button
-                        wire:click="selectFilter('{{ $f }}')"
+                        wire:click="selectFilter('{{ $fKey }}')"
                         class="px-3.5 py-1.5 rounded-md text-xs font-medium cursor-pointer transition duration-150 select-none
-                        {{ $filter === $f ? 'bg-[#333333] text-white' : 'text-[#666666] hover:text-white' }}"
+                        {{ $filter === $fKey ? 'bg-[#333333] text-white' : 'text-[#666666] hover:text-white' }}"
                     >
-                        {{ $f }}
+                        {{ $fLabel }}
                     </button>
                 @endforeach
             </div>
