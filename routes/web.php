@@ -14,6 +14,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/admin', \App\Livewire\Admin::class)->name('admin');
     
     Route::redirect('/dashboard', '/home')->name('dashboard');
+    Route::redirect('/sheet_music', '/home')->name('sheet_music');
     Route::post('/logout', function (\App\Livewire\Actions\Logout $logout) {
         $logout();
         return redirect('/');
