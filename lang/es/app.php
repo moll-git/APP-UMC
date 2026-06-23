@@ -151,8 +151,6 @@ return [
 
     // ADMIN PAGE
     'admin_current_access'       => 'ACCESO ACTUAL',
-    'admin_role_admin'           => 'Administrador',
-    'admin_role_member'          => 'Miembro',
     'admin_members_title'        => 'Miembros',
     'admin_announce_title'       => 'Publicar anuncio',
     'admin_announce_label'       => 'MENSAJE',
@@ -173,6 +171,30 @@ return [
     'admin_badge_reports'        => ':count reportes',
     'admin_badge_pending'        => ':count pendiente',
     'admin_placeholder_detail'   => 'Selecciona una acción del panel izquierdo',
+
+    // ROLES
+    'role_admin'                     => 'Administrador',
+    'role_director'                  => 'Director',
+    'role_member'                    => 'Miembro',
+    'role_delegat'                   => 'Delegado',
+    'role_president'                 => 'Presidente',
+    'role_vice_president'            => 'Vicepresidente',
+    'role_secretary'                 => 'Secretario',
+    'role_chronicler'                => 'Cronista',
+    'role_treasurer'                 => 'Tesorero',
+    'role_payments'                  => 'Pagos',
+    'role_school'                    => 'Escuela',
+    'role_school_treasurer'          => 'Tesorero Escuela',
+    'role_social_media'              => 'Redes Sociales',
+    'role_wardrobe'                  => 'Ropería',
+    'role_instruments'               => 'Instrumentos',
+    'role_maintenance'               => 'Mantenimiento',
+    'role_artistic_advisory'         => 'Asesoría Artística',
+    'role_events'                    => 'Eventos',
+    'role_lottery'                   => 'Lotería',
+    'role_archive'                   => 'Archivo',
+    'role_members_manager'           => 'Socios',
+    'role_institutional_relations'   => 'Relaciones Institucionales',
 
     // NOTIFICATIONS
     'notif_forum_threads'        => 'Nuevos hilos en el Foro',

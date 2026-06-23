@@ -151,8 +151,6 @@ return [
 
     // ADMIN PAGE
     'admin_current_access'       => 'ACCÉS ACTUAL',
-    'admin_role_admin'           => 'Administrador',
-    'admin_role_member'          => 'Membre',
     'admin_members_title'        => 'Membres',
     'admin_announce_title'       => 'Publicar anunci',
     'admin_announce_label'       => 'MISSATGE',
@@ -173,6 +171,30 @@ return [
     'admin_badge_reports'        => ':count informes',
     'admin_badge_pending'        => ':count pendent',
     'admin_placeholder_detail'   => 'Selecciona una acció del panell esquerre',
+
+    // ROLES
+    'role_admin'                     => 'Administrador',
+    'role_director'                  => 'Director',
+    'role_member'                    => 'Membre',
+    'role_delegat'                   => 'Delegat',
+    'role_president'                 => 'President',
+    'role_vice_president'            => 'Vicepresident',
+    'role_secretary'                 => 'Secretari',
+    'role_chronicler'                => 'Cronista',
+    'role_treasurer'                 => 'Tresorer',
+    'role_payments'                  => 'Pagaments',
+    'role_school'                    => 'Escola',
+    'role_school_treasurer'          => 'Tresorer Escola',
+    'role_social_media'              => 'Xarxes Socials',
+    'role_wardrobe'                  => 'Roperia',
+    'role_instruments'               => 'Instruments',
+    'role_maintenance'               => 'Manteniment',
+    'role_artistic_advisory'         => 'Assessoria Artística',
+    'role_events'                    => 'Esdeveniments',
+    'role_lottery'                   => 'Loteria',
+    'role_archive'                   => 'Arxiu',
+    'role_members_manager'           => 'Socis',
+    'role_institutional_relations'   => 'Relacions Institucionals',
 
     // NOTIFICATIONS
     'notif_forum_threads'        => 'Nous fils en el Fòrum',
