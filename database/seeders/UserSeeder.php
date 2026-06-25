@@ -47,7 +47,7 @@ class UserSeeder extends Seeder
 
         User::create([
         'name' => 'Mario Coloma Cerver',
-        'email' => 'marcol@gmail.com',
+        'email' => 'Mario.coloma.cerver@gmail.com',
         'password' => bcrypt('mcc1234'),
         'is_active' => true,
         'instrument' => 'Percussió',
@@ -65,7 +65,7 @@ class UserSeeder extends Seeder
 
         User::create([
         'name' => 'Marcos Verdú Verdú',
-        'email' => 'marver@gmail.com',
+        'email' => 'marcos_happymallets@hotmail.com',
         'password' => bcrypt('mvv1234'),
         'is_active' => true,
         'instrument' => 'Percussió',
@@ -74,7 +74,7 @@ class UserSeeder extends Seeder
 
         User::create([
         'name' => 'Carlos Sellés Richart',
-        'email' => 'carsel@gmail.com',
+        'email' => 'carlosselles197@gmail.com',
         'password' => bcrypt('csr1234'),
         'is_active' => true,
         'instrument' => 'Percussió',
@@ -83,7 +83,7 @@ class UserSeeder extends Seeder
 
         User::create([
         'name' => 'Christian Molines Castelló',
-        'email' => 'chrmol@gmail.com',
+        'email' => 'christianmolines1992@gmail.com',
         'password' => bcrypt('cmc1234'),
         'is_active' => true,
         'instrument' => 'Percussió',
@@ -91,8 +91,8 @@ class UserSeeder extends Seeder
         ]);
 
         User::create([
-        'name' => 'Daniel Ferrandiz',
-        'email' => 'danfer@gmail.com',
+        'name' => 'Daniel Ferrandiz Romero',
+        'email' => 'daniferrandizromero@gmail.com',
         'password' => bcrypt('df1234'),
         'is_active' => true,
         'instrument' => 'Percussió',
@@ -100,8 +100,8 @@ class UserSeeder extends Seeder
         ]);
 
         User::create([
-        'name' => 'Arnau Torró',
-        'email' => 'arntor@gmail.com',
+        'name' => 'Arnau Torró Llopis',
+        'email' => 'atllopis2009@gmail.com',
         'password' => bcrypt('at1234'),
         'is_active' => true,
         'instrument' => 'Percussió',
@@ -110,7 +110,7 @@ class UserSeeder extends Seeder
 
         User::create([
         'name' => 'Mauro Colomina López',
-        'email' => 'maucol@gmail.com',
+        'email' => 'maurocolomina7@gmial.com',
         'password' => bcrypt('mcl1234'),
         'is_active' => true,
         'instrument' => 'Percussió',
@@ -119,7 +119,7 @@ class UserSeeder extends Seeder
 
         User::create([
         'name' => 'Pablo Jordà Torró',
-        'email' => 'pabjor@gmail.com',
+        'email' => 'pablojordatorro@gmail.com',
         'password' => bcrypt('pjt1234'),
         'is_active' => true,
         'instrument' => 'Percussió',
@@ -128,7 +128,7 @@ class UserSeeder extends Seeder
 
         User::create([
         'name' => 'Andreu Valor Galdón',
-        'email' => 'andval@gmail.com',
+        'email' => 'avalor2010@gmail.com',
         'password' => bcrypt('avg1234'),
         'is_active' => true,
         'instrument' => 'Percussió',
@@ -137,7 +137,7 @@ class UserSeeder extends Seeder
 
         User::create([
         'name' => 'Marc Oltra Tomás',
-        'email' => 'marolt@gmail.com',
+        'email' => 'moltratomas@gmail.com',
         'password' => bcrypt('mot1234'),
         'is_active' => true,
         'instrument' => 'Percussió',
@@ -163,8 +163,8 @@ class UserSeeder extends Seeder
         ]);
 
         User::create([
-        'name' => 'Àngel Francés',
-        'email' => 'angfra@gmail.com',
+        'name' => 'Ángel Francés',
+        'email' => 'angelfran9311@gmailcom',
         'password' => bcrypt('af1234'),
         'is_active' => true,
         'instrument' => 'Percussió',
@@ -185,7 +185,7 @@ class UserSeeder extends Seeder
 
         User::create([
         'name' => 'Ivàn Arjona Jover',
-        'email' => 'ivaarj@gmail.com',
+        'email' => 'arjonaivan97@gmail.com',
         'password' => bcrypt('iaj1234'),
         'is_active' => true,
         'instrument' => 'Tuba',
@@ -196,7 +196,7 @@ class UserSeeder extends Seeder
 
         User::create([
         'name' => 'Felipe Galera Mullor',
-        'email' => 'felgal@gmail.com',
+        'email' => 'felipegaleramullor@hotmail.com',
         'password' => bcrypt('fgm1234'),
         'is_active' => true,
         'instrument' => 'Bombardí',
@@ -204,8 +204,8 @@ class UserSeeder extends Seeder
         ]);
 
         User::create([
-        'name' => 'Iván Martí',
-        'email' => 'ivamar@gmail.com',
+        'name' => 'Iván Martí Cardona',
+        'email' => 'Ivanmarticardona@gmail.com',
         'password' => bcrypt('im1234'),
         'is_active' => true,
         'instrument' => 'Bombardí',
@@ -225,7 +225,7 @@ class UserSeeder extends Seeder
 
         User::create([
         'name' => 'Francisco Mota Sansalvador',
-        'email' => 'framot@gmail.com',
+        'email' => 'pakomota@hotmail.com',
         'password' => bcrypt('fms1234'),
         'is_active' => true,
         'instrument' => 'Trombó',
@@ -234,7 +234,7 @@ class UserSeeder extends Seeder
 
         User::create([
         'name' => 'Francisco Cortés Vicedo',
-        'email' => 'fracor@gmail.com',
+        'email' => 'vicedo1978@gmail.com',
         'password' => bcrypt('fcv1234'),
         'is_active' => true,
         'instrument' => 'Trombó',
@@ -243,7 +243,7 @@ class UserSeeder extends Seeder
 
         User::create([
         'name' => 'Germán Jover Sellés',
-        'email' => 'gerjov@gmail.com',
+        'email' => 'germanjover50@gmail.com',
         'password' => bcrypt('gjs1234'),
         'is_active' => true,
         'instrument' => 'Trombó',
@@ -252,7 +252,7 @@ class UserSeeder extends Seeder
 
         User::create([
         'name' => 'Andrés Palaci Moncunill',
-        'email' => 'andpal@gmail.com',
+        'email' => 'andrespalaci17@gmail.com',
         'password' => bcrypt('apm1234'),
         'is_active' => true,
         'instrument' => 'Trombó',
@@ -261,7 +261,7 @@ class UserSeeder extends Seeder
 
         User::create([
         'name' => 'Alejandro Espinosa',
-        'email' => 'aleesp@gmail.com',
+        'email' => 'alejandroespinosacambra@gmail.com',
         'password' => bcrypt('ae1234'),
         'is_active' => true,
         'instrument' => 'Trombó',
@@ -269,8 +269,8 @@ class UserSeeder extends Seeder
         ]);
 
         User::create([
-        'name' => 'Pau Martínez',
-        'email' => 'paumar@gmail.com',
+        'name' => 'Pau Martínez Pascual',
+        'email' => 'paumartinezpascual0@gmail.com',
         'password' => bcrypt('pm1234'),
         'is_active' => true,
         'instrument' => 'Trombó',
@@ -289,8 +289,8 @@ class UserSeeder extends Seeder
         //? TROMPES
 
         User::create([
-        'name' => 'Pascual Sansalvador',
-        'email' => 'passan@gmail.com',
+        'name' => 'Pascual Sansalvador Albors',
+        'email' => 'pasqualsansalb@gmail.com',
         'password' => bcrypt('ps1234'),
         'is_active' => true,
         'instrument' => 'Trompa',
@@ -298,8 +298,8 @@ class UserSeeder extends Seeder
         ]);
 
         User::create([
-        'name' => 'Montse Brotons Pascual',
-        'email' => 'monbro@gmail.com',
+        'name' => 'Montserrat Brotons Pascual',
+        'email' => 'montserratbrotons@gmail.com',
         'password' => bcrypt('mbp1234'),
         'is_active' => true,
         'instrument' => 'Trompa',
@@ -308,7 +308,7 @@ class UserSeeder extends Seeder
 
         User::create([
         'name' => 'Marina Brotons Pascual',
-        'email' => 'marbro@gmail.com',
+        'email' => 'marbrobpascualmarina@gmail.com',
         'password' => bcrypt('mbp1234'),
         'is_active' => true,
         'instrument' => 'Trompa',
@@ -317,7 +317,7 @@ class UserSeeder extends Seeder
 
         User::create([
         'name' => 'Arnau Pascual',
-        'email' => 'arnpas@gmail.com',
+        'email' => 'arnaupasnava@gmail.com',
         'password' => bcrypt('ap1234'),
         'is_active' => true,
         'instrument' => 'Trompa',
@@ -325,8 +325,8 @@ class UserSeeder extends Seeder
         ]);
 
         User::create([
-        'name' => 'Thais Martí',
-        'email' => 'thamar@gmail.com',
+        'name' => 'Thais Martí Cardona',
+        'email' => 'tmarticardona@gmail.com',
         'password' => bcrypt('tm1234'),
         'is_active' => true,
         'instrument' => 'Trompa',
@@ -346,7 +346,7 @@ class UserSeeder extends Seeder
 
         User::create([
         'name' => 'José Vicente Pons Tomás',
-        'email' => 'josvic@gmail.com',
+        'email' => 'josevicenteponstomas@gmail.com',
         'password' => bcrypt('jvpt1234'),
         'is_active' => true,
         'instrument' => 'Trompeta',
@@ -364,7 +364,7 @@ class UserSeeder extends Seeder
 
         User::create([
         'name' => 'Mª Dolores Navajas',
-        'email' => 'madnav@gmail.com',
+        'email' => 'maidonavajas@gmail.com',
         'password' => bcrypt('mdn1234'),
         'is_active' => true,
         'instrument' => 'Trompeta',
@@ -382,7 +382,7 @@ class UserSeeder extends Seeder
 
         User::create([
         'name' => 'Manolo Torró Quinto',
-        'email' => 'mantor@gmail.com',
+        'email' => 'matorqui@gmail.com',
         'password' => bcrypt('mtq1234'),
         'is_active' => true,
         'instrument' => 'Trompeta',
@@ -391,7 +391,7 @@ class UserSeeder extends Seeder
 
         User::create([
         'name' => 'Manuel Rosa Téllez',
-        'email' => 'manros@gmail.com',
+        'email' => 'mrosa77@hotmail.es',
         'password' => bcrypt('mrt1234'),
         'is_active' => true,
         'instrument' => 'Trompeta',
@@ -400,7 +400,7 @@ class UserSeeder extends Seeder
 
         User::create([
         'name' => 'José Luis Lucas Palaci',
-        'email' => 'joslui@gmail.com',
+        'email' => 'jolucpal@gmail.com',
         'password' => bcrypt('jllp1234'),
         'is_active' => true,
         'instrument' => 'Trompeta',
@@ -409,7 +409,7 @@ class UserSeeder extends Seeder
 
         User::create([
         'name' => 'Jorge Moltó Navarro',
-        'email' => 'jormol@gmail.com',
+        'email' => 'jorgemolto.n@gmail.com',
         'password' => bcrypt('jmn1234'),
         'is_active' => true,
         'instrument' => 'Trompeta',
@@ -417,8 +417,8 @@ class UserSeeder extends Seeder
         ]);
 
         User::create([
-        'name' => 'Jose Atencia',
-        'email' => 'josate@gmail.com',
+        'name' => 'Jose Atencia Gisbert',
+        'email' => 'joatgis@gmail.com',
         'password' => bcrypt('ja1234'),
         'is_active' => true,
         'instrument' => 'Trompeta',
@@ -427,7 +427,7 @@ class UserSeeder extends Seeder
 
         User::create([
         'name' => 'Juanfrran Payà Pérez',
-        'email' => 'juapay@gmail.com',
+        'email' => 'juanfranpaya@gmail.com',
         'password' => bcrypt('jpp1234'),
         'is_active' => true,
         'instrument' => 'Trompeta',
@@ -446,8 +446,8 @@ class UserSeeder extends Seeder
         ]);
 
         User::create([
-        'name' => 'Laura Martínez',
-        'email' => 'laumar@gmail.com',
+        'name' => 'Laura Martínez Pascual',
+        'email' => 'pepipascual15@gmail.com',
         'password' => bcrypt('lm1234'),
         'is_active' => true,
         'instrument' => 'Saxo Tenor',
@@ -457,8 +457,8 @@ class UserSeeder extends Seeder
         //? SAXOS ALTS
 
         User::create([
-        'name' => 'Pablo Montaner',
-        'email' => 'pabmon@gmail.com',
+        'name' => 'Pablo Montaner Brotons',
+        'email' => 'pablococentaina@gmail.com',
         'password' => bcrypt('pm1234'),
         'is_active' => true,
         'instrument' => 'Saxo Alt',
@@ -475,8 +475,8 @@ class UserSeeder extends Seeder
         ]);
 
         User::create([
-        'name' => 'Paula Pascual',
-        'email' => 'paupas@gmail.com',
+        'name' => 'Paula Pascual Castelló',
+        'email' => 'paaulapascual98@gmail.com',
         'password' => bcrypt('pp1234'),
         'is_active' => true,
         'instrument' => 'Saxo Alt',
@@ -485,7 +485,7 @@ class UserSeeder extends Seeder
 
         User::create([
         'name' => 'Clara García Marin',
-        'email' => 'clargar@gmail.com',
+        'email' => 'cl.marin99@gmail.com',
         'password' => bcrypt('cgm1234'),
         'is_active' => true,
         'instrument' => 'Saxo Alt',
@@ -494,7 +494,7 @@ class UserSeeder extends Seeder
 
         User::create([
         'name' => 'Antonio Sirvent Juan',
-        'email' => 'antsir@gmail.com',
+        'email' => 'ansirjua@gmail.com',
         'password' => bcrypt('asj1234'),
         'is_active' => true,
         'instrument' => 'Saxo Alt',
@@ -503,7 +503,7 @@ class UserSeeder extends Seeder
 
         User::create([
         'name' => 'Joan González',
-        'email' => 'joagon@gmail.com',
+        'email' => 'jgb4548@gmail.com',
         'password' => bcrypt('jg1234'),
         'is_active' => true,
         'instrument' => 'Saxo Alt',
@@ -511,8 +511,8 @@ class UserSeeder extends Seeder
         ]);
 
         User::create([
-        'name' => 'Laura Ruiz',
-        'email' => 'laurui@gmail.com',
+        'name' => 'Laura Ruiz Martínez',
+        'email' => 'lauraruiiz285@gmail.com',
         'password' => bcrypt('lr1234'),
         'is_active' => true,
         'instrument' => 'Saxo Alt',
@@ -520,8 +520,8 @@ class UserSeeder extends Seeder
         ]);
 
         User::create([
-        'name' => 'Mireia Brotons',
-        'email' => 'mirbro@gmail.com',
+        'name' => 'Mireia Brotons Masanet',
+        'email' => 'mireiabrotonss@gmail.com',
         'password' => bcrypt('mb1234'),
         'is_active' => true,
         'instrument' => 'Saxo Alt',
@@ -529,8 +529,8 @@ class UserSeeder extends Seeder
         ]);
 
         User::create([
-        'name' => 'Marc Martínez',
-        'email' => 'marmar@gmail.com',
+        'name' => 'Marc Martínez Perez',
+        'email' => 'marcmartinez02006@gmail.com',
         'password' => bcrypt('mm1234'),
         'is_active' => true,
         'instrument' => 'Saxo Alt',
@@ -538,8 +538,8 @@ class UserSeeder extends Seeder
         ]);
 
         User::create([
-        'name' => 'Olga Simarro',
-        'email' => 'olgsim@gmail.com',
+        'name' => 'Olga Simarro Sellés',
+        'email' => 'aglorramis08@gmail.com',
         'password' => bcrypt('os1234'),
         'is_active' => true,
         'instrument' => 'Saxo Alt',
@@ -559,7 +559,7 @@ class UserSeeder extends Seeder
 
         User::create([
         'name' => 'Eva Boronat Soler',
-        'email' => 'evabor@gmail.com',
+        'email' => 'evaboronatsoler@gmail.com',
         'password' => bcrypt('ebs1234'),
         'is_active' => true,
         'instrument' => 'Fagot',
@@ -570,7 +570,7 @@ class UserSeeder extends Seeder
 
         User::create([
         'name' => 'Alicia Igual Blasco',
-        'email' => 'aliigu@gmail.com',
+        'email' => 'reigigual@yahoo.es',
         'password' => bcrypt('aib1234'),
         'is_active' => true,
         'instrument' => 'Oboe',
@@ -579,7 +579,7 @@ class UserSeeder extends Seeder
 
         User::create([
         'name' => 'Javi Alonso Fenollar',
-        'email' => 'javalo@gmail.com',
+        'email' => 'javialo93@gmail.com',
         'password' => bcrypt('jaf1234'),
         'is_active' => true,
         'instrument' => 'Oboe',
@@ -587,8 +587,8 @@ class UserSeeder extends Seeder
         ]);
 
         User::create([
-        'name' => 'Anna M. Moncho',
-        'email' => 'annmon@gmail.com',
+        'name' => 'Anna Maria Moncho',
+        'email' => 'annamoncho19@gmail.com',
         'password' => bcrypt('amm1234'),
         'is_active' => true,
         'instrument' => 'Oboe',
@@ -598,8 +598,8 @@ class UserSeeder extends Seeder
         //? CLARINETS
 
         User::create([
-        'name' => 'Juan Antonio Sellés',
-        'email' => 'juaant@gmail.com',
+        'name' => 'Juan Antonio Sellés Pérez',
+        'email' => 'juanantoniocabanya@gmail.com',
         'password' => bcrypt('jas1234'),
         'is_active' => true,
         'instrument' => 'Clarinet',
@@ -617,7 +617,7 @@ class UserSeeder extends Seeder
 
         User::create([
         'name' => 'Cristina Sellés Richart',
-        'email' => 'crisel@gmail.com',
+        'email' => 'criselri83@gmail.com',
         'password' => bcrypt('csr1234'),
         'is_active' => true,
         'instrument' => 'Clarinet',
@@ -626,7 +626,7 @@ class UserSeeder extends Seeder
 
         User::create([
         'name' => 'Anthony Pardo Pardo',
-        'email' => 'antpar@gmail.com',
+        'email' => 'tonin.pardo@gmail.com',
         'password' => bcrypt('app1234'),
         'is_active' => true,
         'instrument' => 'Clarinet',
@@ -635,7 +635,7 @@ class UserSeeder extends Seeder
 
         User::create([
         'name' => 'Marta Solé Monllau',
-        'email' => 'marsol@gmail.com',
+        'email' => 'masolemon@gmail.com',
         'password' => bcrypt('msm1234'),
         'is_active' => true,
         'instrument' => 'Clarinet',
@@ -644,7 +644,7 @@ class UserSeeder extends Seeder
 
         User::create([
         'name' => 'Claudia Marin Jover',
-        'email' => 'clamar@gmail.com',
+        'email' => 'claudiamarin209@gmail.com',
         'password' => bcrypt('cmj1234'),
         'is_active' => true,
         'instrument' => 'Clarinet',
@@ -653,7 +653,7 @@ class UserSeeder extends Seeder
 
         User::create([
         'name' => 'Iván Palmer Juan',
-        'email' => 'ivapal@gmail.com',
+        'email' => 'clarinetiste93@gmail.com',
         'password' => bcrypt('ipj1234'),
         'is_active' => true,
         'instrument' => 'Clarinet',
@@ -662,7 +662,7 @@ class UserSeeder extends Seeder
 
         User::create([
         'name' => 'Alfredo Ruiz Martínez',
-        'email' => 'alfrui@gmail.com',
+        'email' => 'alfredo.ruiz.martinez.clarinet@gmail.com',
         'password' => bcrypt('arm1234'),
         'is_active' => true,
         'instrument' => 'Clarinet',
@@ -671,7 +671,7 @@ class UserSeeder extends Seeder
 
         User::create([
         'name' => 'Nélida Jover Sellés',
-        'email' => 'neljov@gmail.com',
+        'email' => 'nutyhorus@hotmail.com',
         'password' => bcrypt('njs1234'),
         'is_active' => true,
         'instrument' => 'Clarinet',
@@ -680,7 +680,7 @@ class UserSeeder extends Seeder
 
         User::create([
         'name' => 'Zaira Arjona Jover',
-        'email' => 'zaiarj@gmail.com',
+        'email' => 'zahira1027@gmail.com',
         'password' => bcrypt('zaj1234'),
         'is_active' => true,
         'instrument' => 'Clarinet',
@@ -689,7 +689,7 @@ class UserSeeder extends Seeder
 
         User::create([
         'name' => 'Gabriel Blanes',
-        'email' => 'gabbla@gmail.com',
+        'email' => 'gabrielbelda2001@gmail.com',
         'password' => bcrypt('gb1234'),
         'is_active' => true,
         'instrument' => 'Clarinet',
@@ -698,7 +698,7 @@ class UserSeeder extends Seeder
 
         User::create([
         'name' => 'Alex Miñana',
-        'email' => 'alemiñ@gmail.com',
+        'email' => 'alex.rnx@gmail.com',
         'password' => bcrypt('am1234'),
         'is_active' => true,
         'instrument' => 'Clarinet',
@@ -706,8 +706,8 @@ class UserSeeder extends Seeder
         ]);
 
         User::create([
-        'name' => 'Laura Picher',
-        'email' => 'laupic@gmail.com',
+        'name' => 'Laura Weile Picher Garcia',
+        'email' => 'lauraweilepicher@gmail.com',
         'password' => bcrypt('lwp1234'),
         'is_active' => true,
         'instrument' => 'Clarinet',
@@ -716,7 +716,7 @@ class UserSeeder extends Seeder
 
         User::create([
         'name' => 'Carla Reig Igual',
-        'email' => 'carrei@gmail.com',
+        'email' => 'Creigigual@gmail.com',
         'password' => bcrypt('cri1234'),
         'is_active' => true,
         'instrument' => 'Clarinet',
@@ -725,7 +725,7 @@ class UserSeeder extends Seeder
 
         User::create([
         'name' => 'Tiago Raigal Ríos',
-        'email' => 'tiarai@gmail.com',
+        'email' => 'tiagoraigalrios@gmail.com',
         'password' => bcrypt('trr1234'),
         'is_active' => true,
         'instrument' => 'Clarinet',
@@ -736,7 +736,7 @@ class UserSeeder extends Seeder
 
         User::create([
         'name' => 'Begoña Sancho Rodríguez',
-        'email' => 'begsan@gmail.com',
+        'email' => 'bsanchoflautista@hotmail.com',
         'password' => bcrypt('bsr1234'),
         'is_active' => true,
         'instrument' => 'Flauta',
@@ -745,7 +745,7 @@ class UserSeeder extends Seeder
 
         User::create([
         'name' => 'Laura Pérez Navarro',
-        'email' => 'lauper@gmail.com',
+        'email' => 'laura.perez.cocen@gmail.com',
         'password' => bcrypt('lpn1234'),
         'is_active' => true,
         'instrument' => 'Flauta',
@@ -754,7 +754,7 @@ class UserSeeder extends Seeder
 
         User::create([
         'name' => 'Laura Sellés García',
-        'email' => 'lausel@gmail.com',
+        'email' => 'laureta_4_7@hotmail.com',
         'password' => bcrypt('lsg1234'),
         'is_active' => true,
         'instrument' => 'Flauta',
@@ -763,7 +763,7 @@ class UserSeeder extends Seeder
 
         User::create([
         'name' => 'Bea Sellés García',
-        'email' => 'beasel@gmail.com',
+        'email' => 'beaselles30@gmail.com',
         'password' => bcrypt('bsg1234'),
         'is_active' => true,
         'instrument' => 'Flauta',
@@ -772,7 +772,7 @@ class UserSeeder extends Seeder
 
         User::create([
         'name' => 'Gemma Rodríguez García',
-        'email' => 'gemrod@gmail.com',
+        'email' => 'gerodgar1998@gmail.com',
         'password' => bcrypt('grg1234'),
         'is_active' => true,
         'instrument' => 'Flauta',
@@ -781,7 +781,7 @@ class UserSeeder extends Seeder
 
         User::create([
         'name' => 'Sonia Verdú Ferreira',
-        'email' => 'sonver@gmail.com',
+        'email' => 'soniavf9@gmail.com',
         'password' => bcrypt('svf1234'),
         'is_active' => true,
         'instrument' => 'Flauta',
@@ -790,7 +790,7 @@ class UserSeeder extends Seeder
 
         User::create([
         'name' => 'Lara Reig Igual',
-        'email' => 'larrei@gmail.com',
+        'email' => 'reigual09@gmail.com',
         'password' => bcrypt('lri1234'),
         'is_active' => true,
         'instrument' => 'Flauta',
@@ -799,7 +799,7 @@ class UserSeeder extends Seeder
 
         User::create([
         'name' => 'Paula Rodríguez Pérez',
-        'email' => 'paurod@gmail.com',
+        'email' => 'paularope2004@gmail.com',
         'password' => bcrypt('prp1234'),
         'is_active' => true,
         'instrument' => 'Flauta',
@@ -808,7 +808,7 @@ class UserSeeder extends Seeder
 
         User::create([
         'name' => 'Marta Moltó García',
-        'email' => 'marmol@gmail.com',
+        'email' => 'martamoltogarcia@gmail.com',
         'password' => bcrypt('mmg1234'),
         'is_active' => true,
         'instrument' => 'Flauta',
@@ -817,7 +817,7 @@ class UserSeeder extends Seeder
 
         User::create([
         'name' => 'María Simarro Sellés',
-        'email' => 'marsim@gmail.com',
+        'email' => 'vamestra@yahoo.es',
         'password' => bcrypt('mss1234'),
         'is_active' => true,
         'instrument' => 'Flauta',
@@ -845,8 +845,8 @@ class UserSeeder extends Seeder
         ]);
 
         User::create([
-        'name' => 'Oscar Amezcua',
-        'email' => 'oscame@gmail.com',
+        'name' => 'Oscar Amezcua Fernandez',
+        'email' => 'oscaraf99@hotmail.com',
         'password' => bcrypt('oa1234'),
         'is_active' => false,
         'instrument' => 'Clarinet',
@@ -854,11 +854,11 @@ class UserSeeder extends Seeder
         ]);
 
         User::create([
-        'name' => 'Anna María Flores G.',
-        'email' => 'annmar@gmail.com',
+        'name' => 'Anna María Flores García',
+        'email' => 'annafloresgarcia@gmail.com',
         'password' => bcrypt('amfg1234'),
         'is_active' => false,
-        'instrument' => '',
+        'instrument' => 'Clarinet',
         'avatar_url' => fake()->imageUrl(200, 200, 'people', true),
         ]);
 
@@ -910,11 +910,11 @@ class UserSeeder extends Seeder
         //? JUBILATS
 
         User::create([
-        'name' => 'Antonio Moltó',
-        'email' => 'antmol@gmail.com',
+        'name' => 'José Antonio Moltó Perez',
+        'email' => 'socatoin@gmail.com',
         'password' => bcrypt('am1234'),
         'is_active' => false,
-        'instrument' => '',
+        'instrument' => 'Trompeta',
         'avatar_url' => fake()->imageUrl(200, 200, 'people', true),
         ]);
 
