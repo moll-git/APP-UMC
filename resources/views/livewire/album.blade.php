@@ -10,6 +10,16 @@
         </div>
 
         <div class="flex-1 overflow-y-auto space-y-0.5 max-h-[200px] md:max-h-none py-2 md:py-0">
+            @php
+                $albumCatKeys = [
+                    'conciertos' => 'app.album_cat_concerts',
+                    'ensayos' => 'app.album_cat_rehearsals',
+                    'eventos' => 'app.album_cat_events',
+                    'risas' => 'app.album_cat_fun',
+                    'estudio' => 'app.album_cat_studio',
+                    'viajes' => 'app.album_cat_tours',
+                ];
+            @endphp
             @foreach($categories as $cat)
                 @php
                     $isActive = ($activeCategoryId === $cat['id']);
@@ -22,7 +32,7 @@
                     <div class="flex items-center gap-2.5">
                         <span class="text-base">{{ $cat['emoji'] }}</span>
                         <span class="text-[13px] {{ $isActive ? 'text-white font-medium' : 'text-[#888888]' }}">
-                            {{ $cat['name'] }}
+                            {{ __($albumCatKeys[$cat['id']] ?? $cat['name']) }}
                         </span>
                     </div>
                     <span class="text-[11px] text-[#555555] bg-[#222222] px-2 py-0.5 rounded-full">
@@ -36,7 +46,7 @@
         <div class="pt-4 md:pt-6">
             <button class="w-full flex items-center justify-center gap-2 py-2.5 border border-[#333333] hover:border-[#555555] rounded-lg text-[#888888] hover:text-white text-[13px] font-medium transition cursor-pointer">
                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" x2="12" y1="3" y2="15"/></svg>
-                Subir archivo
+                {{ __('app.album_upload_label') }}
             </button>
         </div>
     </div>
@@ -48,7 +58,7 @@
         <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-6">
             <div>
                 <h2 class="text-lg font-bold text-white flex items-center gap-2">
-                    {{ $activeCategory['emoji'] }} {{ $activeCategory['name'] }}
+                    {{ $activeCategory['emoji'] }} {{ __($albumCatKeys[$activeCategory['id']] ?? $activeCategory['name']) }}
                 </h2>
                 <p class="text-xs text-[#666666] mt-0.5">{{ __('app.album_files', ['count' => $activeCategory['count']]) }}</p>
             </div>
@@ -86,7 +96,7 @@
                     @elseif($item['type'] === 'upload')
                         <div class="flex flex-col items-center gap-1.5">
                             <svg class="w-5 h-5 text-[#444444]" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" x2="12" y1="3" y2="15"/></svg>
-                            <span class="text-[10px] text-[#444444]">Subir</span>
+                            <span class="text-[10px] text-[#444444]">{{ __('app.album_upload_label') }}</span>
                         </div>
                         <div class="absolute inset-0 border-2 border-dashed border-[#2a2a2a] rounded-lg pointer-events-none"></div>
                     @endif

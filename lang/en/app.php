@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 return [
 
@@ -218,4 +218,20 @@ return [
 
     // PROFILE
     'profile_title' => 'Profile',
+
+    // SHEET MUSIC
+    'sheet_music'               => 'Sheet Music',
+    'sheet_music_title'         => 'Sheet Music',
+    'sheet_music_search'        => 'Search sheet music...',
+    'sheet_music_upload_title'  => 'Upload files or folders',
+    'sheet_music_upload_sub'    => 'Supports: PDF, XML • Max: 50MB',
+    'sheet_music_upload_btn'    => 'Upload',
+    'sheet_music_highlight'     => 'CONCERT',
+    'sheet_music_categories'    => 'Sheet Music Categories',
+    'sheet_music_cat_moras'     => 'Marchas Moras',
+    'sheet_music_cat_cristianas'=> 'Marchas Cristianas',
+    'sheet_music_cat_pasodobles'=> 'Pasodobles',
+    'sheet_music_cat_xaranga'   => 'Xaranga',
+    'sheet_music_cat_procesion' => 'Procession Marches',
+    'sheet_music_explore'       => 'Explore',
 ];

@@ -13,6 +13,13 @@
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
+        
+        <!-- Theme init -->
+        <script>
+            const cookieTheme = document.cookie.split('; ').find(row => row.startsWith('theme='))?.split('=')[1];
+            const theme = localStorage.getItem('theme') || cookieTheme || 'dark';
+            document.documentElement.className = theme;
+        </script>
     </head>
     <body class="font-sans antialiased text-white bg-[#0a0a0a] min-h-screen overflow-hidden">
         <div class="flex h-screen w-full overflow-hidden">

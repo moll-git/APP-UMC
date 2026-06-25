@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 return [
 
@@ -218,4 +218,20 @@ return [
 
     // PROFILE
     'profile_title' => 'Perfil',
+
+    // SHEET MUSIC
+    'sheet_music'               => 'Partituras',
+    'sheet_music_title'         => 'Partituras',
+    'sheet_music_search'        => 'Buscar partitura...',
+    'sheet_music_upload_title'  => 'Subir archivos o carpetas',
+    'sheet_music_upload_sub'    => 'Soporta: PDF, XML • Máx: 50MB',
+    'sheet_music_upload_btn'    => 'Subir',
+    'sheet_music_highlight'     => 'CONCIERTO',
+    'sheet_music_categories'    => 'Categorías de Partituras',
+    'sheet_music_cat_moras'     => 'Marchas Moras',
+    'sheet_music_cat_cristianas'=> 'Marchas Cristianas',
+    'sheet_music_cat_pasodobles'=> 'Pasodobles',
+    'sheet_music_cat_xaranga'   => 'Xaranga',
+    'sheet_music_cat_procesion' => 'Marchas de procesión',
+    'sheet_music_explore'       => 'Explorar',
 ];
