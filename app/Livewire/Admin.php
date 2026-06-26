@@ -9,7 +9,6 @@ class Admin extends Component
     public string $selectedAction = 'members';
     public string $announceText   = '';
     public bool   $announceSent   = false;
-    public string $currentRole    = 'admin';
     public string $previewText    = '';
 
     public array $delegat = [
@@ -53,7 +52,7 @@ public function generatePreview(): void
         return;
     }
 
-    $msg = 'Bon dia a tots i a totes';
+    $msg = 'Bon dia a tots i a totes,';
 
     if (!empty(trim((string) $d['dia_setmana']))) {
         $dia = trim((string) $d['dia_setmana']);
@@ -103,7 +102,7 @@ public function generatePreview(): void
         $uniformeText = match($d['uniforme']) {
             'estiu' => "Uniforme d'estiu",
             'hivern' => "Uniforme d'hivern",
-            'paisa' => "Uniforme de paisà",
+            'paisa' => "De paisà",
             default => ''
         };
         $msg .= ' ' . $uniformeText . '.';
@@ -111,7 +110,7 @@ public function generatePreview(): void
 
     // Confirmación condicional
     if (!empty($d['confirmar'])) {
-        $msg .= ' CONFIRMAR';
+        $msg .= ' CONFIRMAR.';
     }
 
     $this->previewText = $msg;
@@ -148,11 +147,6 @@ public function generatePreview(): void
     {
         $this->selectedAction = $action;
         $this->announceSent   = false;
-    }
-
-    public function toggleRole($role): void
-    {
-        $this->currentRole = $role;
     }
 
     public function publishAnnouncement(): void

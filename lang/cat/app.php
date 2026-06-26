@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 return [
 
@@ -26,7 +26,7 @@ return [
     'nav_calendar'  => 'Calendari',
     'nav_album'     => 'Àlbum',
     'nav_forum'     => 'Fòrum',
-    'nav_shows'     => 'Actuacions',
+    'nav_shows'     => 'Concerts',
     'nav_admin'     => 'Administració',
     'nav_settings'  => 'Configuració',
 
@@ -46,14 +46,14 @@ return [
     'section_album_desc'     => 'Fotos i vídeos del grup',
     'section_forum_title'    => 'Fòrum',
     'section_forum_desc'     => 'Preguntes, debats i propostes',
-    'section_concerts_title' => 'Actuacions',
-    'section_concerts_desc'  => 'Actuacions i repertori',
+    'section_concerts_title' => 'Concerts',
+    'section_concerts_desc'  => 'Concerts i repertori',
 
     'home_admin_title'    => 'Administració',
     'home_admin_subtitle' => 'Gestió de membres, anuncis, moderació i més',
 
     'home_upcoming_label' => 'PRÒXIMAMENT',
-    'home_next_concert'   => 'PRÒXIMA ACTUACIÓ',
+    'home_next_concert'   => 'PRÒXIM CONCERT',
     'home_next_rehearsal' => 'PRÒXIM ASSAIG',
     'home_activity_label' => 'ACTIVITAT RECENT',
 
@@ -63,7 +63,7 @@ return [
     'calendar_from'  => 'DESDE EL 12 JUN',
 
     'event_type_rehearsal' => 'Assaig',
-    'event_type_concert'   => 'Actuació',
+    'event_type_concert'   => 'Concert',
     'event_type_studio'    => 'Estudi',
     'event_type_meeting'   => 'Reunió',
 
@@ -84,7 +84,7 @@ return [
 
     // CONCERTS PAGE
     'concerts_label'     => 'AGENDA MUSICAL',
-    'concerts_title'     => 'Actuacions',
+    'concerts_title'     => 'Concerts',
     'concerts_works'     => ':count obres',
     'concerts_repertoire_label' => 'REPERTORI',
     'concerts_youtube'   => 'Veure a YouTube',
@@ -202,7 +202,7 @@ return [
     'notif_forum_replies'        => 'Respostes als teus fils',
     'notif_forum_replies_desc'   => 'Quan algú respon als teus missatges',
     'notif_events'               => 'Nous eventos',
-    'notif_events_desc'          => 'Assaigs, actuacions i reunions',
+    'notif_events_desc'          => 'Assaigs, concerts i reunions',
     'notif_setlist'              => 'Canvis en el repertori',
     'notif_setlist_desc'         => 'Quan es bufa el repertori',
     'notif_announcements'        => 'Anuncis de la banda',
@@ -211,13 +211,13 @@ return [
     'notif_photos_desc'          => 'Quan es bufa contingut a l\'àlbum',
 
     // FAQ
-    'faq_1_q' => '¿Com puc canviar el meu instrument o rol?',
-    'faq_1_a' => 'Vés a Configuració > Compte i edita el camp Instrument / Rol. Pulsa Guardar canvis per aplicar.',
+    'faq_1_q' => '¿Com puc canviar el meu instrument?',
+    'faq_1_a' => 'Vés a Configuració > Compte i edita el camp Instrument. Pulsa Guardar canvis per aplicar.',
     'faq_2_q' => '¿Com puge fotos a l\'àlbum?',
     'faq_2_a' => 'Entra en la secció Àlbum, selecciona la categoria i pulsa el botó Puge arxiu a la part inferior del panell esquerre.',
     'faq_3_q' => '¿Com cree un nou evento en el calendari?',
     'faq_3_a' => 'Només els administradors poden crear eventos. Contacta amb l\'admin de la banda per afegir nous eventos.',
-    'faq_4_q' => '¿Puc exportar el repertori d\'una actuació?',
+    'faq_4_q' => '¿Puc exportar el repertori d\'un concert?',
     'faq_4_a' => 'Actualment no està disponible l\'exportació, però està planificada per a pròximes versions.',
     'faq_5_q' => '¿Com reporto un problema?',
     'faq_5_a' => 'Vés a Configuració > Comentaris i descriu el problema. Tampoc puedes contactar directament amb l\'administrador.',
@@ -231,7 +231,7 @@ return [
     'forum_cat_general'    => 'General',
 
     // ALBUM CATEGORIES
-    'album_cat_concerts'   => 'Actuacions',
+    'album_cat_concerts'   => 'Concerts',
     'album_cat_rehearsals' => 'Assaigs',
     'album_cat_events'     => 'Eventos especials',
     'album_cat_fun'        => 'Risades',
@@ -240,4 +240,20 @@ return [
 
     // PROFILE
     'profile_title' => 'Perfil',
+
+    // SHEET MUSIC
+    'sheet_music'               => 'Partitures',
+    'sheet_music_title'         => 'Partitures',
+    'sheet_music_search'        => 'Buscar partitura...',
+    'sheet_music_upload_title'  => 'Pujar arxius o carpetes',
+    'sheet_music_upload_sub'    => 'Suporta: PDF, XML • Màx: 50MB',
+    'sheet_music_upload_btn'    => 'Pujar',
+    'sheet_music_highlight'     => 'CONCERT',
+    'sheet_music_categories'    => 'Categories de Partitures',
+    'sheet_music_cat_moras'     => 'Marxes Mores',
+    'sheet_music_cat_cristianas'=> 'Marxes Cristianes',
+    'sheet_music_cat_pasodobles'=> 'Pasdobles',
+    'sheet_music_cat_xaranga'   => 'Xaranga',
+    'sheet_music_cat_procesion' => 'Marxes de processó',
+    'sheet_music_explore'       => 'Explorar',
 ];

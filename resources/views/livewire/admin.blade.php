@@ -3,32 +3,8 @@
     <!-- Left side control panel -->
     <div class="w-full md:w-[280px] md:min-w-[280px] border-b md:border-b-0 md:border-r border-[#222222] py-6 overflow-y-auto flex flex-col gap-4">
 
-        <!-- Role switcher -->
-        <div class="px-4 pb-2">
-            <p class="text-[11px] font-semibold tracking-widest uppercase text-[#888888] mb-3">
-                ACCESO ACTUAL
-            </p>
-            <div class="flex gap-2">
-                <button
-                    wire:click="toggleRole('admin')"
-                    class="flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-[13px] font-semibold transition cursor-pointer select-none
-                    {{ $currentRole === 'admin' ? 'bg-white text-black' : 'bg-transparent text-[#888888] border border-[#333333]' }}"
-                >
-                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 9.7a1 1 0 0 1-.68 0C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.8 17 5 19 5a1 1 0 0 1 1 1z"/></svg>
-                    Administrador
-                </button>
-                <button
-                    wire:click="toggleRole('member')"
-                    class="flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-[13px] font-semibold transition cursor-pointer select-none
-                    {{ $currentRole === 'member' ? 'bg-white text-black' : 'bg-transparent text-[#888888] border border-[#333333]' }}"
-                >
-                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-                    Miembro
-                </button>
-            </div>
-        </div>
 
-        <!-- Stats summary -->
+
         <div class="px-4">
             <div class="bg-[#1a1a1a] border border-[#2a2a2a] rounded-xl p-4">
                 <div class="grid grid-cols-3 gap-2 text-center">
@@ -86,6 +62,7 @@
             @endforeach
         </div>
 
+
     </div>
 
     <!-- Right Side Detail Panel -->
@@ -139,7 +116,7 @@
                             MENSAJE
                         </label>
                         <textarea
-                            wire:model="announceText"
+                            wire:model.live="announceText"
                             placeholder="Escribe el anuncio para toda la banda..."
                             rows="5"
                             class="w-full bg-[#1a1a1a] border border-[#333333] focus:border-[#555555] rounded-lg p-3 text-white text-sm outline-none resize-y transition"
@@ -342,11 +319,11 @@
 
     </div>
 
-</div>
+    {{-- Abre WhatsApp en nueva pestaña cuando el servidor dispatcha el evento --}}
+    @script
+    <script>
+        $wire.on('open-whatsapp', ({ url }) => window.open(url, '_blank'));
+    </script>
+    @endscript
 
-{{-- Abre WhatsApp en nueva pestaña cuando el servidor dispatcha el evento --}}
-@script
-<script>
-    $wire.on('open-whatsapp', ({ url }) => window.open(url, '_blank'));
-</script>
-@endscript
+</div>

@@ -20,6 +20,16 @@ class Configuracion extends Component
     // Idioma state
     public $selectedLanguage = 'es';
 
+    public function updatedSelectedTheme($theme)
+    {
+        $this->dispatch('theme-updated', theme: $theme);
+    }
+
+    public function updatedSelectedLanguage($lang)
+    {
+        $this->dispatch('lang-updated', lang: $lang);
+    }
+
     // Notificaciones state
     public $notifications = [
         ['id' => 'n1', 'label' => 'Nuevos hilos en el Foro', 'desc' => 'Cuando alguien crea un hilo nuevo', 'enabled' => true],
@@ -41,6 +51,12 @@ class Configuracion extends Component
     public function mount()
     {
         $this->name = Auth::user()->name;
+        if (isset($_COOKIE['lang'])) {
+            $this->selectedLanguage = $_COOKIE['lang'];
+        }
+        if (isset($_COOKIE['theme'])) {
+            $this->selectedTheme = $_COOKIE['theme'];
+        }
     }
 
     public function changeSection($section)
@@ -67,10 +83,11 @@ class Configuracion extends Component
 
     public function toggleFaq($id)
     {
-        if ($this->openFaqId === $id) {
+        // Compare as strings to avoid 0 == null issues
+        if ($this->openFaqId !== null && (string)$this->openFaqId === (string)$id) {
             $this->openFaqId = null;
         } else {
-            $this->openFaqId = $id;
+            $this->openFaqId = (string)$id;
         }
     }
 

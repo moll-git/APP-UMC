@@ -29,6 +29,16 @@
 
     <!-- Category filters -->
     <div class="flex flex-wrap gap-2 mb-5">
+        @php
+            $forumCatKeys = [
+                'Todo' => 'app.forum_cat_all',
+                'Ensayos' => 'app.forum_cat_rehearsals',
+                'Repertorio' => 'app.forum_cat_repertoire',
+                'Equipamiento' => 'app.forum_cat_equipment',
+                'Álbum' => 'app.forum_cat_album',
+                'General' => 'app.forum_cat_general',
+            ];
+        @endphp
         @foreach($categories as $cat)
             @php
                 $isActive = ($activeCategory === $cat);
@@ -38,14 +48,14 @@
                 class="px-4 py-1.5 rounded-full border text-xs font-medium cursor-pointer transition select-none
                 {{ $isActive ? 'border-white bg-white text-black font-semibold' : 'border-[#333333] bg-transparent text-[#888888] hover:text-white' }}"
             >
-                {{ $cat }}
+                {{ __($forumCatKeys[$cat] ?? $cat) }}
             </button>
         @endforeach
     </div>
 
     <!-- Count -->
     <p class="text-xs text-[#666666] mb-4">
-        {{ count($filteredThreads) }} {{ count($filteredThreads) !== 1 ? __('app.forum_threads_plural') : __('app.forum_thread_singular') }}
+        {{ trans_choice('app.forum_threads_found', count($filteredThreads)) }}
     </p>
 
     <!-- Thread list -->
@@ -78,7 +88,7 @@
                         <span>{{ $thread['time'] }}</span>
                         <span class="inline-flex px-2 py-0.5 rounded-full text-[10px] font-medium border" 
                               style="background-color: {{ $catColor }}20; color: {{ $catColor }}; border-color: {{ $catColor }}40;">
-                            {{ $thread['category'] }}
+                            {{ __($forumCatKeys[$thread['category']] ?? $thread['category']) }}
                         </span>
                     </div>
                     <h3 class="text-[15px] font-bold text-white mb-1.5 leading-snug">
