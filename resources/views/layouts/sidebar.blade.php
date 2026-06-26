@@ -150,7 +150,7 @@
                                 auth()->user()->roles->where('name', '!=', 'member')->first() ??
                                 auth()->user()->roles->first();
                         @endphp
-                        {{ $rolPrincipal ? __('app.role_' . $rolPrincipal->name) : __('app.admin_role_member') }}
+                        {{ $rolPrincipal ? __('app.role_' . $rolPrincipal->name) : __('app.role_member') }}
                     </div>
                 </div>
             </div>
