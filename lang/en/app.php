@@ -151,8 +151,6 @@ return [
 
     // ADMIN PAGE
     'admin_current_access'       => 'CURRENT ACCESS',
-    'admin_role_admin'           => 'Administrator',
-    'admin_role_member'          => 'Member',
     'admin_members_title'        => 'Members',
     'admin_announce_title'       => 'Post announcement',
     'admin_announce_label'       => 'MESSAGE',
@@ -173,6 +171,30 @@ return [
     'admin_badge_reports'        => ':count reports',
     'admin_badge_pending'        => ':count pending',
     'admin_placeholder_detail'   => 'Select an action from the left panel',
+
+    // ROLES
+    'role_admin'                     => 'Administrator',
+    'role_director'                  => 'Director',
+    'role_member'                    => 'Member',
+    'role_delegat'                   => 'Delegate',
+    'role_president'                 => 'President',
+    'role_vice_president'            => 'Vice President',
+    'role_secretary'                 => 'Secretary',
+    'role_chronicler'                => 'Chronicler',
+    'role_treasurer'                 => 'Treasurer',
+    'role_payments'                  => 'Payments',
+    'role_school'                    => 'School',
+    'role_school_treasurer'          => 'School Treasurer',
+    'role_social_media'              => 'Social Media',
+    'role_wardrobe'                  => 'Wardrobe',
+    'role_instruments'               => 'Instruments',
+    'role_maintenance'               => 'Maintenance',
+    'role_artistic_advisory'         => 'Artistic Advisory',
+    'role_events'                    => 'Events',
+    'role_lottery'                   => 'Lottery',
+    'role_archive'                   => 'Archive',
+    'role_members_manager'           => 'Members Manager',
+    'role_institutional_relations'   => 'Institutional Relations',
 
     // NOTIFICATIONS
     'notif_forum_threads'        => 'New threads in the Forum',
