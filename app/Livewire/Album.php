@@ -10,12 +10,12 @@ class Album extends Component
     public $filter = 'all';
 
     public $categories = [
-        ['id' => 'conciertos', 'emoji' => '🎸', 'name' => 'Conciertos', 'count' => 14],
-        ['id' => 'ensayos', 'emoji' => '🥁', 'name' => 'Ensayos', 'count' => 9],
-        ['id' => 'eventos', 'emoji' => '✨', 'name' => 'Eventos especiales', 'count' => 7],
-        ['id' => 'risas', 'emoji' => '😄', 'name' => 'Risas', 'count' => 11],
-        ['id' => 'estudio', 'emoji' => '🎙️', 'name' => 'Estudio de grabación', 'count' => 6],
-        ['id' => 'viajes', 'emoji' => '🗺️', 'name' => 'Viajes y giras', 'count' => 4],
+        ['id' => 'conciertos', 'emoji' => '🎺', 'name' => 'app.album_cat_concerts', 'count' => 14],
+        ['id' => 'ensayos', 'emoji' => '🎼', 'name' => 'app.album_cat_rehearsals', 'count' => 9],
+        ['id' => 'carrer', 'emoji' => '🏘️', 'name' => 'app.album_cat_carrer', 'count' => 7],
+        ['id' => 'convivencias', 'emoji' => '🍻', 'name' => 'app.album_cat_convivencias', 'count' => 11],
+        ['id' => 'risas', 'emoji' => '😂', 'name' => 'app.album_cat_jaja', 'count' => 6],
+        ['id' => 'otros', 'emoji' => '📁', 'name' => 'app.album_cat_other', 'count' => 4],
     ];
 
     public $mediaItems = [

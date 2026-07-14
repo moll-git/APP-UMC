@@ -13,10 +13,6 @@
                 <p class="text-sm text-[#999999]">
                 </p>
             </div>
-            <div class="flex items-center gap-1.5 text-sm text-[#00ff88] pt-2">
-                <span class="w-2 h-2 rounded-full bg-[#00ff88] inline-block animate-pulse"></span>
-                {{ __('app.home_active_members', ['count' => 4]) }}
-            </div>
         </div>
     </div>
 
