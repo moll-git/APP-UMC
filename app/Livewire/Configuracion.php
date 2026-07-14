@@ -66,6 +66,20 @@ class Configuracion extends Component
         $this->feedbackSent = false;
     }
 
+    public function changeLanguage($lang)
+    {
+        $this->selectedLanguage = $lang;
+        
+        // 1. Guardar en sesión para que persista en futuras peticiones
+        session()->put('locale', $lang);
+        
+        // 2. Cambiar el idioma de la aplicación en tiempo real para este renderizado
+        app()->setLocale($lang);
+        
+        // 3. (Opcional) Actualizar la cookie si tu middleware la utiliza
+        cookie()->queue(cookie('locale', $lang, 525600)); // 1 año
+    }
+
     public function saveCuenta()
     {
         $user = Auth::user();
