@@ -231,12 +231,12 @@ return [
     'forum_cat_general'    => 'General',
 
     // ALBUM CATEGORIES
-    'album_cat_concerts'   => 'Concerts',
-    'album_cat_rehearsals' => 'Rehearsals',
-    'album_cat_events'     => 'Special events',
-    'album_cat_fun'        => 'Fun',
-    'album_cat_studio'     => 'Recording studio',
-    'album_cat_tours'      => 'Trips and tours',
+    'album_cat_concerts'     => 'Concerts',
+    'album_cat_rehearsals'   => 'Rehearsals',
+    'album_cat_carrer'       => 'Street',
+    'album_cat_convivencias' => 'Gatherings',
+    'album_cat_jaja'         => 'Fun',
+    'album_cat_other'        => 'Others',
 
     // PROFILE
     'profile_title' => 'Profile',

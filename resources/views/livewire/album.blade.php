@@ -14,10 +14,10 @@
                 $albumCatKeys = [
                     'conciertos' => 'app.album_cat_concerts',
                     'ensayos' => 'app.album_cat_rehearsals',
-                    'eventos' => 'app.album_cat_events',
-                    'risas' => 'app.album_cat_fun',
-                    'estudio' => 'app.album_cat_studio',
-                    'viajes' => 'app.album_cat_tours',
+                    'carrer' => 'app.album_cat_carrer',
+                    'convivencias' => 'app.album_cat_convivencias',
+                    'risas' => 'app.album_cat_jaja',
+                    'otros' => 'app.album_cat_other',
                 ];
             @endphp
             @foreach($categories as $cat)

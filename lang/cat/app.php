@@ -231,12 +231,12 @@ return [
     'forum_cat_general'    => 'General',
 
     // ALBUM CATEGORIES
-    'album_cat_concerts'   => 'Concerts',
-    'album_cat_rehearsals' => 'Assaigs',
-    'album_cat_events'     => 'Eventos especials',
-    'album_cat_fun'        => 'Risades',
-    'album_cat_studio'     => 'Estudi de gravació',
-    'album_cat_tours'      => 'Viatges i gires',
+    'album_cat_concerts'            => 'Concerts',
+    'album_cat_rehearsals'          => 'Assaigs',
+    'album_cat_carrer'              => 'Carrer',
+    'album_cat_convivencias'        => 'Convivències',
+    'album_cat_jaja'                => 'Rises',
+    'album_cat_other'               => 'Altres',
 
     // PROFILE
     'profile_title' => 'Perfil',
