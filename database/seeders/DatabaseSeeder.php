@@ -45,6 +45,7 @@ class DatabaseSeeder extends Seeder
             RoleSeeder::class,        // 1º Crear roles
             UserSeeder::class,        // 2º Crear usuarios
             UserRolesSeeder::class,   // 3º Asignar roles a usuarios
+            AlbumSeeder::class,       // 4º Crear álbumes
         ]);
     }
 }

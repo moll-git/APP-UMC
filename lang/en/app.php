@@ -231,6 +231,7 @@ return [
     'forum_cat_general'    => 'General',
 
     // ALBUM CATEGORIES
+    'album_cat_all'          => 'All',
     'album_cat_concerts'     => 'Concerts',
     'album_cat_rehearsals'   => 'Rehearsals',
     'album_cat_carrer'       => 'Street',

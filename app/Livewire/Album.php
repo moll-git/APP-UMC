@@ -2,79 +2,63 @@
 
 namespace App\Livewire;
 
+use App\Models\Album as AlbumModel;
 use Livewire\Component;
 
 class Album extends Component
 {
-    public $activeCategoryId = 'conciertos';
-    public $filter = 'all';
+    public string $activeCategoryId = 'todo';
+    public string $filter = 'all';   // all | photos | videos (futuro uso)
 
-    public $categories = [
-        ['id' => 'conciertos', 'emoji' => '🎺', 'name' => 'app.album_cat_concerts', 'count' => 14],
-        ['id' => 'ensayos', 'emoji' => '🎼', 'name' => 'app.album_cat_rehearsals', 'count' => 9],
-        ['id' => 'carrer', 'emoji' => '🏘️', 'name' => 'app.album_cat_carrer', 'count' => 7],
-        ['id' => 'convivencias', 'emoji' => '🍻', 'name' => 'app.album_cat_convivencias', 'count' => 11],
-        ['id' => 'risas', 'emoji' => '😂', 'name' => 'app.album_cat_jaja', 'count' => 6],
-        ['id' => 'otros', 'emoji' => '📁', 'name' => 'app.album_cat_other', 'count' => 4],
+    /** Definición de las categorías con emoji y clave de traducción */
+    public array $categories = [
+        ['id' => 'todo',        'emoji' => '🗂️', 'trans' => 'app.album_cat_all'],
+        ['id' => 'conciertos',  'emoji' => '🎺', 'trans' => 'app.album_cat_concerts'],
+        ['id' => 'ensayos',     'emoji' => '🎼', 'trans' => 'app.album_cat_rehearsals'],
+        ['id' => 'carrer',      'emoji' => '🏘️', 'trans' => 'app.album_cat_carrer'],
+        ['id' => 'convivencias','emoji' => '🍻', 'trans' => 'app.album_cat_convivencias'],
+        ['id' => 'risas',       'emoji' => '😂', 'trans' => 'app.album_cat_jaja'],
+        ['id' => 'otros',       'emoji' => '📁', 'trans' => 'app.album_cat_other'],
     ];
 
-    public $mediaItems = [
-        ['id' => 'm1', 'type' => 'photo', 'categoryId' => 'conciertos'],
-        ['id' => 'm2', 'type' => 'video', 'categoryId' => 'conciertos'],
-        ['id' => 'm3', 'type' => 'photo', 'categoryId' => 'conciertos'],
-        ['id' => 'm4', 'type' => 'photo', 'categoryId' => 'conciertos'],
-        ['id' => 'm5', 'type' => 'video', 'categoryId' => 'conciertos'],
-        ['id' => 'm6', 'type' => 'photo', 'categoryId' => 'conciertos'],
-        ['id' => 'm7', 'type' => 'photo', 'categoryId' => 'conciertos'],
-        ['id' => 'm8', 'type' => 'video', 'categoryId' => 'conciertos'],
-        ['id' => 'm9', 'type' => 'photo', 'categoryId' => 'conciertos'],
-        ['id' => 'm10', 'type' => 'photo', 'categoryId' => 'conciertos'],
-        ['id' => 'm11', 'type' => 'photo', 'categoryId' => 'conciertos'],
-        ['id' => 'm12', 'type' => 'photo', 'categoryId' => 'conciertos'],
-        ['id' => 'm13', 'type' => 'photo', 'categoryId' => 'conciertos'],
-        ['id' => 'upload', 'type' => 'upload', 'categoryId' => 'conciertos'],
-        
-        // Items for other categories to support interaction
-        ['id' => 'm14', 'type' => 'photo', 'categoryId' => 'ensayos'],
-        ['id' => 'm15', 'type' => 'video', 'categoryId' => 'ensayos'],
-        ['id' => 'upload', 'type' => 'upload', 'categoryId' => 'ensayos'],
-    ];
-
-    public function selectCategory($id)
+    public function selectCategory(string $id): void
     {
         $this->activeCategoryId = $id;
     }
 
-    public function selectFilter($filter)
+    public function selectFilter(string $filter): void
     {
         $this->filter = $filter;
     }
 
-    public function getFilteredItems()
-    {
-        return collect($this->mediaItems)
-            ->filter(function ($item) {
-                if ($item['categoryId'] !== $this->activeCategoryId) {
-                    return false;
-                }
-                if ($this->filter === 'photos') {
-                    return $item['type'] === 'photo';
-                }
-                if ($this->filter === 'videos') {
-                    return $item['type'] === 'video';
-                }
-                return true;
-            })
-            ->toArray();
-    }
-
     public function render()
     {
-        $activeCat = collect($this->categories)->firstWhere('id', $this->activeCategoryId);
-        
+        // Conteos por categoría para el sidebar
+        $counts = AlbumModel::selectRaw('category, count(*) as total')
+            ->groupBy('category')
+            ->pluck('total', 'category')
+            ->toArray();
+
+        // Total global para la categoría "Todo"
+        $counts['todo'] = AlbumModel::count();
+
+        // Álbumes: si es "todo" se muestran todos, si no, filtramos por categoría
+        $query = AlbumModel::with('user')->withCount('photos')->latest('event_date');
+
+        if ($this->activeCategoryId !== 'todo') {
+            $query->where('category', $this->activeCategoryId);
+        }
+
+        $albums = $query->get();
+
+        // Categoría activa (para el header del panel derecho)
+        $activeCategory = collect($this->categories)
+            ->firstWhere('id', $this->activeCategoryId);
+
         return view('livewire.album', [
-            'filteredItems' => $this->getFilteredItems(),
-            'activeCategory' => $activeCat,
+            'albums'         => $albums,
+            'counts'         => $counts,
+            'activeCategory' => $activeCategory,
         ]);
     }
 }

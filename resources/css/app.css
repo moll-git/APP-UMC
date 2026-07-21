@@ -90,3 +90,73 @@ html.light textarea::placeholder { color: #9299a5 !important; }
 
 /* Light: notification toggle track when disabled */
 html.light .bg-\[\#333333\].rounded-full { background-color: #c8ccd6 !important; }
+
+/* ─── Upload button: theme-aware styles ──────────────────────────────────── */
+/* Base (dark) — outline subtle */
+.btn-upload-themed {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    padding: 0.375rem 0.875rem;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    border-radius: 0.5rem;
+    border: 1px solid #444444;
+    background-color: transparent;
+    color: #aaaaaa;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    white-space: nowrap;
+}
+.btn-upload-themed:hover {
+    border-color: #ffffff;
+    color: #ffffff;
+    background-color: #1a1a1a;
+}
+
+/* Slate (azul oscuro) — accent azul */
+html.slate .btn-upload-themed {
+    border-color: #2d4a8a;
+    color: #7eaaff;
+    background-color: rgba(30, 58, 138, 0.15);
+}
+html.slate .btn-upload-themed:hover {
+    border-color: #4a7aff;
+    color: #ffffff;
+    background-color: rgba(30, 58, 138, 0.35);
+}
+
+/* Forest (verde) — accent verde */
+html.forest .btn-upload-themed {
+    border-color: #2a6a4a;
+    color: #5fc488;
+    background-color: rgba(17, 53, 29, 0.2);
+}
+html.forest .btn-upload-themed:hover {
+    border-color: #3a9a6a;
+    color: #ffffff;
+    background-color: rgba(17, 53, 29, 0.45);
+}
+
+/* Wine (burdeos) — accent rosa/burdeos */
+html.wine .btn-upload-themed {
+    border-color: #8a2a5a;
+    color: #e07aaa;
+    background-color: rgba(53, 17, 29, 0.2);
+}
+html.wine .btn-upload-themed:hover {
+    border-color: #cc4a8a;
+    color: #ffffff;
+    background-color: rgba(53, 17, 29, 0.45);
+}
+
+/* Light — botón sólido oscuro */
+html.light .btn-upload-themed {
+    border-color: transparent;
+    background-color: #1a1d23;
+    color: #ffffff;
+}
+html.light .btn-upload-themed:hover {
+    background-color: #2d3139;
+    color: #ffffff;
+}
