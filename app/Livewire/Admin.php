@@ -3,6 +3,7 @@
 namespace App\Livewire;
 
 use Livewire\Component;
+use App\Models\WorkGroup;
 
 class Admin extends Component
 {
@@ -27,6 +28,15 @@ class Admin extends Component
         ['initials' => 'AN', 'name' => 'Ana García',       'role' => 'Voz',      'isAdmin' => false],
         ['initials' => 'LP', 'name' => 'Laura Pérez',      'role' => 'Batería',  'isAdmin' => false],
         ['initials' => 'JM', 'name' => 'Javier Martín',    'role' => 'Bajo',     'isAdmin' => false],
+    ];
+
+    // ── Work Groups ───────────────────────────────────────────
+    public ?int   $editingGroupId   = null;
+    public bool   $showGroupForm    = false;
+    public array  $groupForm = [
+        'name'        => '',
+        'color'       => '#4488ff',
+        'description' => '',
     ];
 
     // ── Delegat ───────────────────────────────────────────────
@@ -141,12 +151,65 @@ public function generatePreview(): void
         $this->previewText = '';
     }
 
+    // ── Work Groups CRUD ──────────────────────────────────────
+
+    public function openNewGroup(): void
+    {
+        $this->editingGroupId = null;
+        $this->groupForm = ['name' => '', 'color' => '#4488ff', 'description' => ''];
+        $this->showGroupForm  = true;
+    }
+
+    public function openEditGroup(int $id): void
+    {
+        $group = WorkGroup::findOrFail($id);
+        $this->editingGroupId = $id;
+        $this->groupForm = [
+            'name'        => $group->name,
+            'color'       => $group->color,
+            'description' => $group->description ?? '',
+        ];
+        $this->showGroupForm = true;
+    }
+
+    public function saveGroup(): void
+    {
+        $this->validate([
+            'groupForm.name'  => 'required|string|max:100',
+            'groupForm.color' => 'required|string|max:20',
+        ]);
+
+        if ($this->editingGroupId) {
+            WorkGroup::findOrFail($this->editingGroupId)->update($this->groupForm);
+        } else {
+            WorkGroup::create($this->groupForm);
+        }
+
+        $this->showGroupForm  = false;
+        $this->editingGroupId = null;
+        $this->groupForm = ['name' => '', 'color' => '#4488ff', 'description' => ''];
+    }
+
+    public function deleteGroup(int $id): void
+    {
+        WorkGroup::findOrFail($id)->delete();
+        $this->showGroupForm  = false;
+        $this->editingGroupId = null;
+    }
+
+    public function cancelGroupForm(): void
+    {
+        $this->showGroupForm  = false;
+        $this->editingGroupId = null;
+    }
+
     // ── General ───────────────────────────────────────────────
 
     public function selectAction($action): void
     {
         $this->selectedAction = $action;
         $this->announceSent   = false;
+        $this->showGroupForm  = false;
     }
 
     public function publishAnnouncement(): void
@@ -161,6 +224,7 @@ public function generatePreview(): void
 
     public function render()
     {
-        return view('livewire.admin');
+        $allGroups = WorkGroup::orderBy('name')->get();
+        return view('livewire.admin', compact('allGroups'));
     }
 }
