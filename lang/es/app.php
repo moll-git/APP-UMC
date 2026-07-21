@@ -26,7 +26,7 @@ return [
     'nav_calendar'  => 'Calendario',
     'nav_album'     => 'Álbum',
     'nav_forum'     => 'Foro',
-    'nav_shows'     => 'Shows',
+    'nav_shows'     => 'Conciertos',
     'nav_admin'     => 'Administración',
     'nav_settings'  => 'Configuración',
 
@@ -231,6 +231,7 @@ return [
     'forum_cat_general'    => 'General',
 
     // ALBUM CATEGORIES
+    'album_cat_all'          => 'Todo',
     'album_cat_concerts'     => 'Conciertos',
     'album_cat_rehearsals'   => 'Ensayos',
     'album_cat_carrer'       => 'Calle',

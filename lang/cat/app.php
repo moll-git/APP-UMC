@@ -231,6 +231,7 @@ return [
     'forum_cat_general'    => 'General',
 
     // ALBUM CATEGORIES
+    'album_cat_all'                 => 'Tot',
     'album_cat_concerts'            => 'Concerts',
     'album_cat_rehearsals'          => 'Assaigs',
     'album_cat_carrer'              => 'Carrer',
