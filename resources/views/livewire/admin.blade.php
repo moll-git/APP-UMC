@@ -35,6 +35,7 @@
                     ['id' => 'notify',   'label' => 'Enviar notificación',       'icon' => '<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>'],
                     ['id' => 'reports',  'label' => 'Ver informes',              'icon' => '<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/></svg>'],
                     ['id' => 'delegat',  'label' => 'Enviar formulari delegat',  'icon' => '<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>'],
+                    ['id' => 'grups',    'label' => 'Grups de treball',          'icon' => '<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>'],
                 ];
             @endphp
 
@@ -304,6 +305,121 @@
                         </svg>
                         Enviar per WhatsApp
                     </button>
+                </div>
+            </div>
+
+        <!-- PANEL: GRUPS DE TREBALL -->
+        @elseif($selectedAction === 'grups')
+            <div>
+                <div class="flex justify-between items-center mb-6">
+                    <div>
+                        <h2 class="text-lg font-bold text-white">Grups de treball</h2>
+                        <p class="text-xs text-[#555555] mt-0.5">Gestiona els grups encarregats de muntar l'escenari</p>
+                    </div>
+                    <button
+                        wire:click="openNewGroup"
+                        class="px-4 py-2 bg-white text-black rounded-lg text-xs font-semibold hover:opacity-90 transition cursor-pointer select-none"
+                    >
+                        + Nou grup
+                    </button>
+                </div>
+
+                {{-- New/Edit form --}}
+                @if($showGroupForm)
+                    <div class="bg-[#1a1a1a] border border-[#2a2a2a] rounded-2xl p-5 mb-6">
+                        <h3 class="text-sm font-semibold text-white mb-4">
+                            {{ $editingGroupId ? 'Editar grup' : 'Nou grup' }}
+                        </h3>
+                        <div class="space-y-4">
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-[11px] font-semibold tracking-wider text-[#888888] uppercase mb-2">Nom *</label>
+                                    <input
+                                        type="text"
+                                        wire:model.live="groupForm.name"
+                                        placeholder="Ex: Grup 1"
+                                        class="w-full bg-[#111111] border border-[#333333] focus:border-[#555555] rounded-lg p-3 text-white text-sm outline-none transition"
+                                    />
+                                    @error('groupForm.name') <span class="text-xs text-red-400">{{ $message }}</span> @enderror
+                                </div>
+                                <div>
+                                    <label class="block text-[11px] font-semibold tracking-wider text-[#888888] uppercase mb-2">Color</label>
+                                    <div class="flex items-center gap-3">
+                                        <input
+                                            type="color"
+                                            wire:model.live="groupForm.color"
+                                            class="w-10 h-10 rounded-lg cursor-pointer border border-[#333333] bg-[#111111] p-0.5"
+                                        />
+                                        <input
+                                            type="text"
+                                            wire:model.live="groupForm.color"
+                                            placeholder="#4488ff"
+                                            class="flex-1 bg-[#111111] border border-[#333333] focus:border-[#555555] rounded-lg p-3 text-white text-sm outline-none transition"
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-[11px] font-semibold tracking-wider text-[#888888] uppercase mb-2">Descripció (opcional)</label>
+                                <input
+                                    type="text"
+                                    wire:model.live="groupForm.description"
+                                    placeholder="Ex: Membres: Joan, Pep, Maria..."
+                                    class="w-full bg-[#111111] border border-[#333333] focus:border-[#555555] rounded-lg p-3 text-white text-sm outline-none transition"
+                                />
+                            </div>
+                            <div class="flex gap-3">
+                                <button
+                                    wire:click="cancelGroupForm"
+                                    class="flex-1 py-2.5 px-4 rounded-lg text-sm font-semibold bg-[#2a2a2a] text-[#aaaaaa] hover:bg-[#333333] transition cursor-pointer select-none"
+                                >
+                                    Cancel·lar
+                                </button>
+                                @if($editingGroupId)
+                                    <button
+                                        wire:click="deleteGroup({{ $editingGroupId }})"
+                                        wire:confirm="Segur que vols eliminar aquest grup?"
+                                        class="px-4 py-2.5 rounded-lg text-sm font-semibold bg-[#ff444415] text-[#ff4444] border border-[#ff444430] hover:bg-[#ff444425] transition cursor-pointer select-none"
+                                    >
+                                        Eliminar
+                                    </button>
+                                @endif
+                                <button
+                                    wire:click="saveGroup"
+                                    class="flex-[2] py-2.5 px-4 rounded-lg text-sm font-semibold bg-white text-black hover:opacity-90 transition cursor-pointer select-none"
+                                >
+                                    {{ $editingGroupId ? 'Guardar canvis' : 'Crear grup' }}
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                @endif
+
+                {{-- Groups list --}}
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    @foreach($allGroups as $group)
+                        <div
+                            wire:click="openEditGroup({{ $group->id }})"
+                            class="bg-[#1a1a1a] border border-[#2a2a2a] hover:border-[#444444] rounded-2xl p-4 cursor-pointer transition group"
+                        >
+                            <div class="flex items-center gap-3 mb-2">
+                                <div class="w-8 h-8 rounded-lg flex items-center justify-center shrink-0"
+                                     style="background-color:{{ $group->color }}20; border:1px solid {{ $group->color }}40">
+                                    <span class="w-2.5 h-2.5 rounded-full" style="background-color:{{ $group->color }}"></span>
+                                </div>
+                                <div class="flex-1 min-w-0">
+                                    <div class="text-sm font-semibold text-white truncate">{{ $group->name }}</div>
+                                    <div class="text-[10px] text-[#555555]">{{ $group->color }}</div>
+                                </div>
+                                <svg class="w-4 h-4 text-[#333333] group-hover:text-[#666666] transition shrink-0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+                            </div>
+                            @if($group->description)
+                                <p class="text-xs text-[#555555] ml-11 leading-relaxed">{{ $group->description }}</p>
+                            @else
+                                <p class="text-xs text-[#333333] italic ml-11">Sense descripció · clica per editar</p>
+                            @endif
+                        </div>
+                    @endforeach
                 </div>
             </div>
 
