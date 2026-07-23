@@ -7,27 +7,27 @@
     <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
         <div class="sm:col-span-2">
             <label class="block text-[11px] font-semibold tracking-wider text-[#888888] uppercase mb-2">
-                Títol *
+                {{ __('app.concert_form_title') }}
             </label>
             <input
                 type="text"
                 wire:model.live="editForm.title"
-                placeholder="Ex: Concert festes 6 d'agost"
+                placeholder="{{ __('app.concert_form_title_placeholder') }}"
                 class="w-full bg-[#1a1a1a] border border-[#333333] focus:border-[#555555] rounded-lg p-3 text-white text-sm outline-none transition"
             />
             @error('editForm.title') <span class="text-xs text-red-400 mt-1">{{ $message }}</span> @enderror
         </div>
         <div>
             <label class="block text-[11px] font-semibold tracking-wider text-[#888888] uppercase mb-2">
-                Estat *
+                {{ __('app.concert_form_status') }}
             </label>
             <select
                 wire:model.live="editForm.status"
                 class="w-full bg-[#1a1a1a] border border-[#333333] focus:border-[#555555] rounded-lg p-3 text-white text-sm outline-none transition"
             >
-                <option value="upcoming">Pròxim</option>
-                <option value="in_preparation">En preparació</option>
-                <option value="past">Passat</option>
+                <option value="upcoming">{{ __('app.status_upcoming') }}</option>
+                <option value="in_preparation">{{ __('app.status_preparing') }}</option>
+                <option value="past">{{ __('app.status_past') }}</option>
             </select>
         </div>
     </div>
@@ -36,7 +36,7 @@
     <div class="grid grid-cols-2 gap-4">
         <div>
             <label class="block text-[11px] font-semibold tracking-wider text-[#888888] uppercase mb-2">
-                Data *
+                {{ __('app.concert_form_date') }}
             </label>
             <input
                 type="date"
@@ -47,7 +47,7 @@
         </div>
         <div>
             <label class="block text-[11px] font-semibold tracking-wider text-[#888888] uppercase mb-2">
-                Hora
+                {{ __('app.concert_form_time') }}
             </label>
             <input
                 type="time"
@@ -61,23 +61,23 @@
     <div class="grid grid-cols-2 gap-4">
         <div>
             <label class="block text-[11px] font-semibold tracking-wider text-[#888888] uppercase mb-2">
-                Lloc
+                {{ __('app.concert_form_location') }}
             </label>
             <input
                 type="text"
                 wire:model.live="editForm.location"
-                placeholder="Plaça Major..."
+                placeholder="{{ __('app.concert_form_location_placeholder') }}"
                 class="w-full bg-[#1a1a1a] border border-[#333333] focus:border-[#555555] rounded-lg p-3 text-white text-sm outline-none transition"
             />
         </div>
         <div>
             <label class="block text-[11px] font-semibold tracking-wider text-[#888888] uppercase mb-2">
-                Vestuari
+                {{ __('app.concert_form_vestuario') }}
             </label>
             <input
                 type="text"
                 wire:model.live="editForm.vestuario"
-                placeholder="Uniforme d'estiu..."
+                placeholder="{{ __('app.concert_form_vestuario_placeholder') }}"
                 class="w-full bg-[#1a1a1a] border border-[#333333] focus:border-[#555555] rounded-lg p-3 text-white text-sm outline-none transition"
             />
         </div>
@@ -86,11 +86,11 @@
     {{-- Notes --}}
     <div>
         <label class="block text-[11px] font-semibold tracking-wider text-[#888888] uppercase mb-2">
-            Notes (opcional)
+            {{ __('app.concert_form_notes') }}
         </label>
         <textarea
             wire:model.live="editForm.notes"
-            placeholder="Observacions, instruccions especials..."
+            placeholder="{{ __('app.concert_form_notes_placeholder') }}"
             rows="2"
             class="w-full bg-[#1a1a1a] border border-[#333333] focus:border-[#555555] rounded-lg p-3 text-white text-sm outline-none transition resize-y"
         ></textarea>
@@ -99,7 +99,7 @@
     {{-- Work groups --}}
     <div>
         <label class="block text-[11px] font-semibold tracking-wider text-[#888888] uppercase mb-2">
-            Grups de treball (muntatge)
+            {{ __('app.concert_form_groups') }}
         </label>
         <div class="flex flex-wrap gap-2">
             @foreach($allGroups as $group)
@@ -122,9 +122,9 @@
     {{-- Repertoire --}}
     <div>
         <label class="block text-[11px] font-semibold tracking-wider text-[#888888] uppercase mb-3">
-            Repertori
+            {{ __('app.concerts_repertoire_label') }}
             @if(count($editWorks) > 0)
-                <span class="ml-1 text-[#555555]">({{ count($editWorks) }} obres)</span>
+                <span class="ml-1 text-[#555555]">({{ trans_choice('app.concerts_works', count($editWorks), ['count' => count($editWorks)]) }})</span>
             @endif
         </label>
 
@@ -141,13 +141,13 @@
                                 type="text"
                                 wire:model.live="editWorks.{{ $i }}.title"
                                 class="w-full bg-transparent text-sm text-white outline-none placeholder-[#444444]"
-                                placeholder="Nom de l'obra..."
+                                placeholder="{{ __('app.concert_form_work_title_placeholder') }}"
                             />
                             <input
                                 type="url"
                                 wire:model.live="editWorks.{{ $i }}.youtube_url"
                                 class="w-full bg-transparent text-xs text-[#666666] outline-none placeholder-[#333333] mt-0.5"
-                                placeholder="https://youtube.com/watch?v=... (opcional)"
+                                placeholder="{{ __('app.concert_form_youtube_placeholder') }}"
                             />
                         </div>
                         <button
@@ -169,7 +169,7 @@
                     type="text"
                     wire:model.live="newWorkTitle"
                     wire:keydown.enter="addWorkToEdit"
-                    placeholder="Títol de l'obra..."
+                    placeholder="{{ __('app.concert_form_new_work_title_placeholder') }}"
                     class="flex-1 bg-[#1a1a1a] border border-[#333333] focus:border-[#555555] rounded-md px-3 py-2 text-sm text-white outline-none transition"
                 />
                 <button
@@ -183,7 +183,7 @@
             <input
                 type="url"
                 wire:model.live="newWorkYoutube"
-                placeholder="Enllaç YouTube (opcional)"
+                placeholder="{{ __('app.concert_form_youtube_placeholder') }}"
                 class="w-full bg-[#1a1a1a] border border-[#333333] focus:border-[#555555] rounded-md px-3 py-2 text-xs text-[#888888] outline-none transition"
             />
         </div>
@@ -196,15 +196,16 @@
             wire:click="{{ $isNew ? 'closeAdd' : 'closeEdit' }}"
             class="flex-1 py-2.5 px-5 rounded-lg text-sm font-semibold bg-[#2a2a2a] text-[#aaaaaa] hover:bg-[#333333] transition cursor-pointer select-none"
         >
-            Cancel·lar
+            {{ __('app.cancel') }}
         </button>
         <button
             type="button"
             wire:click="{{ $isNew ? 'saveNewConcert' : 'saveEdit' }}"
             class="flex-[2] py-2.5 px-5 rounded-lg text-sm font-semibold bg-white text-black hover:opacity-90 transition cursor-pointer select-none"
         >
-            {{ $isNew ? 'Crear concert' : 'Guardar canvis' }}
+            {{ $isNew ? __('app.concert_form_create') : __('app.save_changes') }}
         </button>
     </div>
 
 </div>
+

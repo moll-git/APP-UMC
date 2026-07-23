@@ -51,9 +51,7 @@ class Configuracion extends Component
     public function mount()
     {
         $this->name = Auth::user()->name;
-        if (isset($_COOKIE['lang'])) {
-            $this->selectedLanguage = $_COOKIE['lang'];
-        }
+        $this->selectedLanguage = session('locale', request()->cookie('locale', request()->cookie('lang', app()->getLocale())));
         if (isset($_COOKIE['theme'])) {
             $this->selectedTheme = $_COOKIE['theme'];
         }
@@ -68,16 +66,15 @@ class Configuracion extends Component
 
     public function changeLanguage($lang)
     {
-        $this->selectedLanguage = $lang;
-        
-        // 1. Guardar en sesión para que persista en futuras peticiones
-        session()->put('locale', $lang);
-        
-        // 2. Cambiar el idioma de la aplicación en tiempo real para este renderizado
-        app()->setLocale($lang);
-        
-        // 3. (Opcional) Actualizar la cookie si tu middleware la utiliza
-        cookie()->queue(cookie('locale', $lang, 525600)); // 1 año
+        if (in_array($lang, ['es', 'en', 'cat'])) {
+            $this->selectedLanguage = $lang;
+            session()->put('locale', $lang);
+            cookie()->queue('locale', $lang, 525600);
+            cookie()->queue('lang', $lang, 525600);
+            app()->setLocale($lang);
+            $this->dispatch('lang-updated', lang: $lang);
+            $this->js('window.location.reload()');
+        }
     }
 
     public function saveCuenta()
