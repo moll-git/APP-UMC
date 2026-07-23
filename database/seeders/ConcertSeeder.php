@@ -23,7 +23,7 @@ class ConcertSeeder extends Seeder
 
         // ── Concierto próximo: Concert festes 6 d'agost ───────────────
         $concert = Concert::firstOrCreate(
-            ['title' => "Concert festes 6 d'agost"],
+            ['title' => "app.concert_festes"],
             [
                 'date'      => '2026-08-06',
                 'time'      => '22:00',
@@ -63,7 +63,7 @@ class ConcertSeeder extends Seeder
 
         // ── Concierto pasado de ejemplo ────────────────────────────────
         $past = Concert::firstOrCreate(
-            ['title' => 'Concert de Pasqua'],
+            ['title' => 'app.concert_pasqua'],
             [
                 'date'      => '2026-04-12',
                 'time'      => '20:00',

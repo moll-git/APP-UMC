@@ -46,6 +46,8 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,        // 2º Crear usuarios
             UserRolesSeeder::class,   // 3º Asignar roles a usuarios
             AlbumSeeder::class,       // 4º Crear álbumes
+            ConcertSeeder::class,     // 5º Crear conciertos y grupos
+            WorkGroupMembersSeeder::class, // 6º Asignar miembros a grupos
         ]);
     }
 }

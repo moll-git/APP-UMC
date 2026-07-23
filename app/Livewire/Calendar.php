@@ -10,63 +10,61 @@ class Calendar extends Component
     public $viewMonth = 5; // June = 5 (0-indexed)
     public $selectedDay = 18;
 
-    public $events = [
-        [
-            'id' => 'ev1',
-            'title' => 'Concierto apertura',
-            'date' => 'JUN 12',
-            'dayNum' => 12,
-            'monthStr' => 'JUN',
-            'time' => '21:00',
-            'location' => 'Teatro Municipal',
-            'type' => 'Concierto',
-            'calendarDay' => 12,
-        ],
-        [
-            'id' => 'ev2',
-            'title' => 'Ensayo setlist',
-            'date' => 'JUN 14',
-            'dayNum' => 14,
-            'monthStr' => 'JUN',
-            'time' => '19:00',
-            'location' => 'Sala de ensayo A',
-            'type' => 'Ensayo',
-            'calendarDay' => 14,
-        ],
-        [
-            'id' => 'ev3',
-            'title' => 'Sesión de grabación',
-            'date' => 'JUN 18',
-            'dayNum' => 18,
-            'monthStr' => 'JUN',
-            'time' => '10:00',
-            'location' => 'Estudio Norte',
-            'type' => 'Estudio',
-            'calendarDay' => 18,
-        ],
-        [
-            'id' => 'ev4',
-            'title' => 'Festival de Primavera',
-            'date' => 'JUN 20',
-            'dayNum' => 20,
-            'monthStr' => 'JUN',
-            'time' => '19:30',
-            'location' => 'Plaza Mayor',
-            'type' => 'Concierto',
-            'calendarDay' => 20,
-        ],
-        [
-            'id' => 'ev5',
-            'title' => 'Reunión de banda',
-            'date' => 'JUN 25',
-            'dayNum' => 25,
-            'monthStr' => 'JUN',
-            'time' => '17:00',
-            'location' => 'Local UMC',
-            'type' => 'Reunión',
-            'calendarDay' => 25,
-        ],
-    ];
+    public $events = [];
+
+    public function mount()
+    {
+        $this->viewYear = date('Y');
+        $this->viewMonth = date('n') - 1; // 0-indexed month
+        $this->selectedDay = date('j');
+        $this->loadEvents();
+    }
+
+    public function loadEvents()
+    {
+        $m = $this->viewMonth + 1;
+        $y = $this->viewYear;
+
+        $concerts = \App\Models\Concert::whereMonth('date', $m)->whereYear('date', $y)->get();
+        $eventsDB = \App\Models\Event::whereMonth('start_time', $m)->whereYear('start_time', $y)->get();
+
+        $merged = [];
+        
+        foreach ($concerts as $c) {
+            if (!$c->date) continue;
+            $date = \Carbon\Carbon::parse($c->date);
+            $merged[] = [
+                'id' => 'c_'.$c->id,
+                'title' => __($c->title),
+                'date' => $date->format('M d'),
+                'dayNum' => $date->day,
+                'monthStr' => mb_strtoupper($date->translatedFormat('M')),
+                'time' => $c->time ? \Carbon\Carbon::parse($c->time)->format('H:i') : '',
+                'location' => $c->location ?? 'Por determinar',
+                'type' => 'Concierto',
+                'calendarDay' => $date->day,
+            ];
+        }
+
+        foreach ($eventsDB as $e) {
+            if (!$e->start_time) continue;
+            $date = \Carbon\Carbon::parse($e->start_time);
+            $merged[] = [
+                'id' => 'e_'.$e->id,
+                'title' => $e->title,
+                'date' => $date->format('M d'),
+                'dayNum' => $date->day,
+                'monthStr' => mb_strtoupper($date->translatedFormat('M')),
+                'time' => $e->is_all_day ? 'Todo el día' : $date->format('H:i'),
+                'location' => '',
+                'type' => 'Ensayo', // Assuming most general events are rehearsals for now
+                'calendarDay' => $date->day,
+            ];
+        }
+
+        usort($merged, fn($a, $b) => $a['dayNum'] <=> $b['dayNum']);
+        $this->events = $merged;
+    }
 
     public function prevMonth()
     {
@@ -76,6 +74,7 @@ class Calendar extends Component
         } else {
             $this->viewMonth--;
         }
+        $this->loadEvents();
     }
 
     public function nextMonth()
@@ -86,6 +85,7 @@ class Calendar extends Component
         } else {
             $this->viewMonth++;
         }
+        $this->loadEvents();
     }
 
     public function selectDay($day)

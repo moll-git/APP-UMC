@@ -23,12 +23,33 @@ class Admin extends Component
         'confirmar'     => true,
     ];
 
-    public array $membersList = [
-        ['initials' => 'MR', 'name' => 'Miguel Rodríguez', 'role' => 'Guitarra', 'isAdmin' => true],
-        ['initials' => 'AN', 'name' => 'Ana García',       'role' => 'Voz',      'isAdmin' => false],
-        ['initials' => 'LP', 'name' => 'Laura Pérez',      'role' => 'Batería',  'isAdmin' => false],
-        ['initials' => 'JM', 'name' => 'Javier Martín',    'role' => 'Bajo',     'isAdmin' => false],
-    ];
+    public array $membersList = [];
+
+    public function mount()
+    {
+        $users = \App\Models\User::all();
+        foreach ($users as $user) {
+            $nameParts = explode(' ', trim($user->name));
+            $initials = mb_strtoupper(mb_substr($nameParts[0], 0, 1));
+            if (count($nameParts) > 1) {
+                $initials .= mb_strtoupper(mb_substr(end($nameParts), 0, 1));
+            }
+            
+            $isAdmin = false;
+            if (method_exists($user, 'hasRole') && $user->hasRole('admin')) {
+                $isAdmin = true;
+            } elseif ($user->email === 'admin@admin.com') {
+                $isAdmin = true;
+            }
+
+            $this->membersList[] = [
+                'initials' => $initials,
+                'name' => $user->name,
+                'role' => $user->instrument ?? 'Miembro',
+                'isAdmin' => $isAdmin,
+            ];
+        }
+    }
 
     // ── Work Groups ───────────────────────────────────────────
     public ?int   $editingGroupId   = null;

@@ -5,25 +5,6 @@
 
 
 
-        <div class="px-4">
-            <div class="bg-[#1a1a1a] border border-[#2a2a2a] rounded-xl p-4">
-                <div class="grid grid-cols-3 gap-2 text-center">
-                    <div>
-                        <div class="text-xl font-bold text-white">4</div>
-                        <div class="text-[9px] font-semibold tracking-wider text-[#555555]">MIEMBROS</div>
-                    </div>
-                    <div>
-                        <div class="text-xl font-bold text-white">5</div>
-                        <div class="text-[9px] font-semibold tracking-wider text-[#555555]">EVENTOS</div>
-                    </div>
-                    <div>
-                        <div class="text-xl font-bold text-white">12</div>
-                        <div class="text-[9px] font-semibold tracking-wider text-[#555555]">HILOS</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
         <!-- Actions -->
         <div class="px-2 space-y-0.5 flex-grow overflow-y-auto max-h-[300px] md:max-h-none py-2 md:py-0">
             @php

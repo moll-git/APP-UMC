@@ -129,7 +129,7 @@
                                     {{ $ev['location'] }}
                                 </span>
                             </div>
-                            <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-medium bg-[#222222] border border-[#333333]" style="color: {{ $eventColors[$ev['type']] }};">
+                            <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-medium bg-[#222222] border border-[#333333]" style="color: {{ $eventColors[$ev['type']] ?? '#4488ff' }};">
                                 {{ $ev['type'] }}
                             </span>
                         </div>

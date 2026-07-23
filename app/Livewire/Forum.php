@@ -11,44 +11,42 @@ class Forum extends Component
 
     public $categories = ['Todo', 'Ensayos', 'Repertorio', 'Equipamiento', 'Álbum', 'General'];
 
-    public $threads = [
-        [
-            'id' => 't1', 'author' => 'Ana García', 'authorInitials' => 'AN', 'time' => 'hace 2h',
-            'category' => 'Ensayos', 'title' => '¿Cuándo es el próximo ensayo?',
-            'preview' => 'No he visto información sobre la fecha del ensayo de la semana que viene...',
-            'replies' => 8, 'likes' => 3,
-        ],
-        [
-            'id' => 't2', 'author' => 'Miguel Rodríguez', 'authorInitials' => 'MR', 'time' => 'hace 5h',
-            'category' => 'Repertorio', 'title' => 'Propuesta de nueva canción para el setlist',
-            'preview' => 'He estado escuchando una canción que creo que nos quedaría perfecta...',
-            'replies' => 14, 'likes' => 9,
-        ],
-        [
-            'id' => 't3', 'author' => 'Laura Pérez', 'authorInitials' => 'LP', 'time' => 'ayer',
-            'category' => 'General', 'title' => '¿Alguien tiene contacto del fotógrafo?',
-            'preview' => 'Quedé en pedirle las fotos del concierto del mes pasado...',
-            'replies' => 4, 'likes' => 1,
-        ],
-        [
-            'id' => 't4', 'author' => 'Javier Martín', 'authorInitials' => 'JM', 'time' => 'ayer',
-            'category' => 'Equipamiento', 'title' => 'Problema con el equipo de sonido',
-            'preview' => 'El amplificador principal hace un ruido extraño desde el viernes...',
-            'replies' => 6, 'likes' => 2,
-        ],
-        [
-            'id' => 't5', 'author' => 'Carmen Sánchez', 'authorInitials' => 'CS', 'time' => 'hace 2d',
-            'category' => 'Álbum', 'title' => 'Ideas para la portada del nuevo álbum',
-            'preview' => 'Estuve pensando en algunos conceptos visuales que podrían funcionar bien...',
-            'replies' => 11, 'likes' => 7,
-        ],
-        [
-            'id' => 't6', 'author' => 'Miguel Rodríguez', 'authorInitials' => 'MR', 'time' => 'hace 3d',
-            'category' => 'Ensayos', 'title' => 'Resumen del ensayo del jueves',
-            'preview' => 'Todo fue muy bien, repasamos las tres primeras canciones del setlist...',
-            'replies' => 3, 'likes' => 5,
-        ],
-    ];
+    public $threads = [];
+
+    public function mount()
+    {
+        $users = \App\Models\User::inRandomOrder()->limit(6)->get();
+
+        $threadTemplates = [
+            ['time' => 'hace 2h', 'category' => 'Ensayos', 'titleKey' => 'app.forum_q1_title', 'previewKey' => 'app.forum_q1_preview', 'replies' => 8, 'likes' => 3],
+            ['time' => 'hace 5h', 'category' => 'Repertorio', 'titleKey' => 'app.forum_q2_title', 'previewKey' => 'app.forum_q2_preview', 'replies' => 14, 'likes' => 9],
+            ['time' => 'ayer', 'category' => 'General', 'titleKey' => 'app.forum_q3_title', 'previewKey' => 'app.forum_q3_preview', 'replies' => 4, 'likes' => 1],
+            ['time' => 'ayer', 'category' => 'Equipamiento', 'titleKey' => 'app.forum_q4_title', 'previewKey' => 'app.forum_q4_preview', 'replies' => 6, 'likes' => 2],
+            ['time' => 'hace 2d', 'category' => 'Álbum', 'titleKey' => 'app.forum_q5_title', 'previewKey' => 'app.forum_q5_preview', 'replies' => 11, 'likes' => 7],
+            ['time' => 'hace 3d', 'category' => 'Ensayos', 'titleKey' => 'app.forum_q6_title', 'previewKey' => 'app.forum_q6_preview', 'replies' => 3, 'likes' => 5],
+        ];
+
+        foreach ($threadTemplates as $index => $template) {
+            $user = $users[$index % count($users)];
+            $nameParts = explode(' ', trim($user->name));
+            $initials = mb_strtoupper(mb_substr($nameParts[0], 0, 1));
+            if (count($nameParts) > 1) {
+                $initials .= mb_strtoupper(mb_substr(end($nameParts), 0, 1));
+            }
+
+            $this->threads[] = [
+                'id' => 't' . ($index + 1),
+                'author' => $user->name,
+                'authorInitials' => $initials,
+                'time' => $template['time'],
+                'category' => $template['category'],
+                'title' => __($template['titleKey']),
+                'preview' => __($template['previewKey']),
+                'replies' => $template['replies'],
+                'likes' => $template['likes'],
+            ];
+        }
+    }
 
     public function selectCategory($category)
     {

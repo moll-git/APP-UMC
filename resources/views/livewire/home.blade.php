@@ -100,51 +100,37 @@
                 {{ __('app.home_upcoming_label') }}
             </p>
 
-            <!-- Próximo Concierto -->
-            <div class="bg-[#1a1a1a] border border-[#333333] rounded-xl p-5 mb-3 flex gap-3.5 items-start">
-                <div class="w-9 h-9 rounded-full bg-[#333333] flex items-center justify-center shrink-0 text-white">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
-                </div>
-                <div>
-                    <p class="text-[10px] font-semibold tracking-widest uppercase text-[#888888] mb-1">
-                        {{ __('app.home_next_concert') }}
-                    </p>
-                    <p class="text-[15px] font-semibold text-white mb-2">
-                        Festival de Primavera
-                    </p>
-                    <div class="flex flex-col gap-1 text-xs text-[#888888]">
-                        <span class="flex items-center gap-1.5">
-                            <span class="text-[#00ff88]">●</span> 20 Jun 2026 19:30
-                        </span>
-                        <span class="flex items-center gap-1.5">
-                            <span class="text-[#00ff88]">●</span> Plaza Mayor, Madrid
-                        </span>
+            @forelse($upcomingConcerts as $index => $concert)
+                <div class="bg-[#1a1a1a] border border-[#333333] rounded-xl p-5 {{ $index === 0 ? 'mb-3' : '' }} flex gap-3.5 items-start">
+                    <div class="w-9 h-9 {{ $index === 0 ? 'rounded-full bg-[#333333] text-white' : 'rounded-lg bg-[#222222] border border-[#333333] text-[#666666]' }} flex items-center justify-center shrink-0">
+                        @if($index === 0)
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+                        @else
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
+                        @endif
+                    </div>
+                    <div>
+                        <p class="text-[10px] font-semibold tracking-widest uppercase text-[#888888] mb-1">
+                            {{ __('app.home_next_concert') }}
+                        </p>
+                        <p class="text-[15px] font-semibold text-white mb-2">
+                            {{ __($concert->title) }}
+                        </p>
+                        <div class="flex flex-col gap-1 text-xs text-[#888888]">
+                            <span class="flex items-center gap-1.5">
+                                <span class="{{ $index === 0 ? 'text-[#00ff88]' : 'text-[#888888]' }}">●</span> {{ ucfirst(\Carbon\Carbon::parse($concert->date)->translatedFormat('D d M Y')) }} {{ $concert->time ? \Carbon\Carbon::parse($concert->time)->format('H:i') : '' }}
+                            </span>
+                            @if($concert->location)
+                            <span class="flex items-center gap-1.5">
+                                <span class="{{ $index === 0 ? 'text-[#00ff88]' : 'text-[#888888]' }}">●</span> {{ $concert->location }}
+                            </span>
+                            @endif
+                        </div>
                     </div>
                 </div>
-            </div>
-
-            <!-- Próximo Ensayo -->
-            <div class="bg-[#1a1a1a] border border-[#333333] rounded-xl p-5 flex gap-3.5 items-start">
-                <div class="w-9 h-9 rounded-lg bg-[#222222] border border-[#333333] flex items-center justify-center shrink-0 text-[#666666]">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
-                </div>
-                <div>
-                    <p class="text-[10px] font-semibold tracking-widest uppercase text-[#888888] mb-1">
-                        {{ __('app.home_next_rehearsal') }}
-                    </p>
-                    <p class="text-[15px] font-semibold text-white mb-2">
-                        Ensayo general — Setlist Festival
-                    </p>
-                    <div class="flex flex-col gap-1 text-xs text-[#888888]">
-                        <span class="flex items-center gap-1.5">
-                            <span class="text-[#888888]">●</span> Vie 14 Jun 2026 19:00
-                        </span>
-                        <span class="flex items-center gap-1.5">
-                            <span class="text-[#888888]">●</span> Sala de ensayo A
-                        </span>
-                    </div>
-                </div>
-            </div>
+            @empty
+                <div class="text-sm text-[#888888]">{{ __('No hay eventos próximos.') }}</div>
+            @endforelse
         </div>
 
         <!-- SECCIÓN 5: ACTIVIDAD RECIENTE -->
